@@ -441,6 +441,93 @@
       background: rgba(253,186,10,0.05);
     }
 
+    /* ── HERO SOCIAL ICONS ── */
+    .hero-social {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      margin-top: 1.5rem;
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 1s 0.6s both;
+    }
+
+    .hero-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--black);
+      border-radius: 50%;
+      border: 2px solid rgba(29,26,27,0.6);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .hero-social a:hover {
+      background: var(--red);
+      border-color: var(--red);
+      transform: translateY(-3px);
+    }
+
+    .hero-social svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--yellow);
+    }
+
+    /* ── LISTEN SECTION ── */
+    .listen-subheading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.08em;
+      color: var(--off-white);
+      margin: 2rem 0 1rem;
+    }
+
+    .acast-player {
+      border: 2px solid var(--red);
+      overflow: hidden;
+      border-radius: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    .platform-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .platform-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 2px solid rgba(253,186,10,0.3);
+      color: var(--off-white);
+      text-decoration: none;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      padding: 0.5rem 1rem;
+      border-radius: 2px;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+
+    .platform-link:hover {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      color: var(--black);
+    }
+
+    .platform-link svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
     .episodes-grid {
       display: grid;
       gap: 1.5rem;
@@ -716,11 +803,10 @@
     <span class="nav-brand">TPNAF</span>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#awards">Awards</a></li>
-      <li><a href="#episodes">Episodes</a></li>
-      <li><a href="#hosts">Hosts</a></li>
-      <li><a href="#submit">Submit</a></li>
       <li><a href="#listen">Listen</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#hosts">Hosts</a></li>
+      <li><a href="#follow">Follow</a></li>
     </ul>
   </nav>
 
@@ -735,6 +821,23 @@
       height="340"
     />
     <p class="hero-tagline">Movie fans arguing about <span>Top 3 lists</span><br>nobody asked them to make</p>
+    <div class="hero-social">
+      <a href="https://open.spotify.com/show/6RKT6u2w5B0Uin0czNpx0r" target="_blank" rel="noopener" aria-label="Spotify" title="Spotify">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+      </a>
+      <a href="https://podcasts.apple.com/us/podcast/the-podcast-nobody-asked-for/id1531618753?ls=1" target="_blank" rel="noopener" aria-label="Apple Podcasts" title="Apple Podcasts">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 4.2c3.3 0 6.15 1.575 7.95 4.05.375.525.225 1.275-.3 1.65-.525.375-1.275.225-1.65-.3C16.575 7.8 14.4 6.6 12 6.6c-2.4 0-4.575 1.2-5.925 3C5.7 10.125 4.95 10.275 4.425 9.9c-.525-.375-.675-1.125-.3-1.65C5.925 5.775 8.7 4.2 12 4.2zM12 7.8c1.875 0 3.525.9 4.575 2.25.375.525.225 1.275-.3 1.65-.525.375-1.275.225-1.65-.3-.675-.9-1.65-1.2-2.625-1.2s-1.95.45-2.625 1.2c-.375.525-1.125.675-1.65.3-.525-.375-.675-1.125-.3-1.65C8.475 8.7 10.125 7.8 12 7.8zm0 3.6c1.2 0 2.1.975 2.1 2.1 0 .75-.45 1.425-1.05 1.8v3.15c0 .6-.45 1.05-1.05 1.05s-1.05-.45-1.05-1.05V15.3c-.6-.375-1.05-1.05-1.05-1.8 0-1.125.9-2.1 2.1-2.1z"/></svg>
+      </a>
+      <a href="https://pocketcasts.com/podcast/the-podcast-nobody-asked-for/f2e9e2c0-d906-0138-e78f-0acc26574db2" target="_blank" rel="noopener" aria-label="Pocket Casts" title="Pocket Casts">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm4.313 16.463a.6.6 0 0 1-.848.042 7.196 7.196 0 0 0-4.887-1.92c-1.8 0-3.444.664-4.708 1.757a.6.6 0 0 1-.776-.915A8.392 8.392 0 0 1 11.578 13.2c2.1 0 4.02.77 5.493 2.038a.6.6 0 0 1 .042.848v-.623zm1.87-2.07a.6.6 0 0 1-.848.035 9.594 9.594 0 0 0-6.757-2.728 9.594 9.594 0 0 0-6.758 2.728.6.6 0 0 1-.813-.883A10.794 10.794 0 0 1 10.578 10.2c2.7 0 5.163 1.004 7.07 2.645a.6.6 0 0 1 .035.848v-.3zm1.89-2.1a.6.6 0 0 1-.848.028A11.99 11.99 0 0 0 10.578 9a11.99 11.99 0 0 0-8.647 3.571.6.6 0 0 1-.82-.877A13.19 13.19 0 0 1 10.578 7.8c3.306 0 6.316 1.22 8.617 3.226a.6.6 0 0 1 .028.848l-.15-.181z"/></svg>
+      </a>
+      <a href="https://overcast.fm/itunes1531618753" target="_blank" rel="noopener" aria-label="Overcast" title="Overcast">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1.27 17.357l-.892-2.54a3.545 3.545 0 0 1-1.104-6.484l.894 2.542a1.074 1.074 0 0 0 .437 2.036c.197 0 .38-.056.537-.149l.896 2.548a3.545 3.545 0 0 1-.768.047zm3.826-.283a3.545 3.545 0 0 1-.768.283l-.892-2.54a1.074 1.074 0 0 0 .44-2.037c.156.093.34.149.537.149l.896-2.547a3.545 3.545 0 0 1 1.104 6.483l-.317.209zm1.578-8.04l-.894 2.543a3.527 3.527 0 0 0-3.24 0l-.894-2.542a6.017 6.017 0 0 1 5.028 0zm-3.134 4.51a.536.536 0 1 1 0-1.072.536.536 0 0 1 0 1.072z"/></svg>
+      </a>
+      <a href="https://goodpods.com/podcasts/the-podcast-nobody-asked-for-174131" target="_blank" rel="noopener" aria-label="Goodpods" title="Goodpods">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 5.25a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm0 13.5c-3.75 0-7.5-1.875-7.5-4.5C4.5 12 8.25 10.5 12 10.5s7.5 1.5 7.5 3.75c0 2.625-3.75 4.5-7.5 4.5z"/></svg>
+      </a>
+    </div>
     <div class="hero-scroll-hint">
       <span>SCROLL</span>
       <div class="arrow-down"></div>
@@ -766,35 +869,43 @@
 
   <div class="tape-divider"></div>
 
-  <!-- AWARDS -->
-  <section id="awards" class="reveal">
-    <span class="section-label">// Recognition</span>
-    <h2>Award Nominated</h2>
-    <div class="awards-grid">
-      <div class="award-ceremony">
-        <h3>Golden Lobes</h3>
-        <span class="award-year">2025</span>
-        <ul class="award-nominations">
-          <li><span class="award-badge">NOMINATED</span> Best Social</li>
-          <li><span class="award-badge">NOMINATED</span> Best Tangent</li>
-        </ul>
-      </div>
-      <div class="award-ceremony">
-        <h3>Independent Podcast Awards</h3>
-        <span class="award-year">2025</span>
-        <ul class="award-nominations">
-          <li><span class="award-badge">NOMINATED</span> Best Jingle</li>
-        </ul>
-      </div>
+  <!-- LISTEN -->
+  <section id="listen" class="reveal">
+    <span class="section-label">// Tune In</span>
+    <h2>Listen</h2>
+
+    <h3 class="listen-subheading">Our Latest Episodes</h3>
+    <div class="acast-player">
+      <iframe src="https://embed.acast.com/6989d69261be18927060db1e?accentColor=161616&amp;bgColor=fcbc04&amp;secondaryColor=161616&amp;feed=true" frameBorder="0" width="100%" height="380px" title="The Podcast Nobody Asked For — Latest Episodes" loading="lazy">
+        <div class="player-fallback">▶ Latest episodes available on <a href="https://shows.acast.com/podcast-nobody-asked-for" target="_blank" rel="noopener">Acast</a></div>
+      </iframe>
     </div>
-  </section>
 
-  <div class="tape-divider"></div>
+    <h3 class="listen-subheading">Find Us On</h3>
+    <div class="platform-links">
+      <a href="https://open.spotify.com/show/6RKT6u2w5B0Uin0czNpx0r" class="platform-link" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        Spotify
+      </a>
+      <a href="https://podcasts.apple.com/us/podcast/the-podcast-nobody-asked-for/id1531618753?ls=1" class="platform-link" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 4.2c3.3 0 6.15 1.575 7.95 4.05.375.525.225 1.275-.3 1.65-.525.375-1.275.225-1.65-.3C16.575 7.8 14.4 6.6 12 6.6c-2.4 0-4.575 1.2-5.925 3C5.7 10.125 4.95 10.275 4.425 9.9c-.525-.375-.675-1.125-.3-1.65C5.925 5.775 8.7 4.2 12 4.2zM12 7.8c1.875 0 3.525.9 4.575 2.25.375.525.225 1.275-.3 1.65-.525.375-1.275.225-1.65-.3-.675-.9-1.65-1.2-2.625-1.2s-1.95.45-2.625 1.2c-.375.525-1.125.675-1.65.3-.525-.375-.675-1.125-.3-1.65C8.475 8.7 10.125 7.8 12 7.8zm0 3.6c1.2 0 2.1.975 2.1 2.1 0 .75-.45 1.425-1.05 1.8v3.15c0 .6-.45 1.05-1.05 1.05s-1.05-.45-1.05-1.05V15.3c-.6-.375-1.05-1.05-1.05-1.8 0-1.125.9-2.1 2.1-2.1z"/></svg>
+        Apple Podcasts
+      </a>
+      <a href="https://pocketcasts.com/podcast/the-podcast-nobody-asked-for/f2e9e2c0-d906-0138-e78f-0acc26574db2" class="platform-link" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm4.313 16.463a.6.6 0 0 1-.848.042 7.196 7.196 0 0 0-4.887-1.92c-1.8 0-3.444.664-4.708 1.757a.6.6 0 0 1-.776-.915A8.392 8.392 0 0 1 11.578 13.2c2.1 0 4.02.77 5.493 2.038a.6.6 0 0 1 .042.848v-.623zm1.87-2.07a.6.6 0 0 1-.848.035 9.594 9.594 0 0 0-6.757-2.728 9.594 9.594 0 0 0-6.758 2.728.6.6 0 0 1-.813-.883A10.794 10.794 0 0 1 10.578 10.2c2.7 0 5.163 1.004 7.07 2.645a.6.6 0 0 1 .035.848v-.3zm1.89-2.1a.6.6 0 0 1-.848.028A11.99 11.99 0 0 0 10.578 9a11.99 11.99 0 0 0-8.647 3.571.6.6 0 0 1-.82-.877A13.19 13.19 0 0 1 10.578 7.8c3.306 0 6.316 1.22 8.617 3.226a.6.6 0 0 1 .028.848l-.15-.181z"/></svg>
+        Pocket Casts
+      </a>
+      <a href="https://overcast.fm/itunes1531618753" class="platform-link" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1.27 17.357l-.892-2.54a3.545 3.545 0 0 1-1.104-6.484l.894 2.542a1.074 1.074 0 0 0 .437 2.036c.197 0 .38-.056.537-.149l.896 2.548a3.545 3.545 0 0 1-.768.047zm3.826-.283a3.545 3.545 0 0 1-.768.283l-.892-2.54a1.074 1.074 0 0 0 .44-2.037c.156.093.34.149.537.149l.896-2.547a3.545 3.545 0 0 1 1.104 6.483l-.317.209zm1.578-8.04l-.894 2.543a3.527 3.527 0 0 0-3.24 0l-.894-2.542a6.017 6.017 0 0 1 5.028 0zm-3.134 4.51a.536.536 0 1 1 0-1.072.536.536 0 0 1 0 1.072z"/></svg>
+        Overcast
+      </a>
+      <a href="https://goodpods.com/podcasts/the-podcast-nobody-asked-for-174131" class="platform-link" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 5.25a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm0 13.5c-3.75 0-7.5-1.875-7.5-4.5C4.5 12 8.25 10.5 12 10.5s7.5 1.5 7.5 3.75c0 2.625-3.75 4.5-7.5 4.5z"/></svg>
+        Goodpods
+      </a>
+    </div>
 
-  <!-- EPISODES -->
-  <section id="episodes" class="reveal">
-    <span class="section-label">// Fan Favourites</span>
-    <h2>Some Of Our Favourite Episodes</h2>
+    <h3 class="listen-subheading">Some Of Our Favourite Episodes</h3>
     <div class="episodes-grid">
       <article class="episode-card">
         <div class="episode-art-wrap">
@@ -834,6 +945,31 @@
 
   <div class="tape-divider"></div>
 
+  <!-- AWARDS -->
+  <section id="awards" class="reveal">
+    <span class="section-label">// Recognition</span>
+    <h2>Award Nominated</h2>
+    <div class="awards-grid">
+      <div class="award-ceremony">
+        <h3>Golden Lobes</h3>
+        <span class="award-year">2025</span>
+        <ul class="award-nominations">
+          <li><span class="award-badge">NOMINATED</span> Best Social</li>
+          <li><span class="award-badge">NOMINATED</span> Best Tangent</li>
+        </ul>
+      </div>
+      <div class="award-ceremony">
+        <h3>Independent Podcast Awards</h3>
+        <span class="award-year">2025</span>
+        <ul class="award-nominations">
+          <li><span class="award-badge">NOMINATED</span> Best Jingle</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="tape-divider"></div>
+
   <!-- HOSTS -->
   <section id="hosts" class="reveal">
     <span class="section-label">// Meet The Massive Rankers</span>
@@ -841,26 +977,14 @@
     <div class="hosts-grid">
       <div class="host-card">
         <div class="host-img-wrap">
-          <img
-            src="Graham.webp"
-            alt="Graham Jones - co-host of The Podcast Nobody Asked For"
-            loading="lazy"
-            width="160"
-            height="160"
-          />
+          <img src="Graham.webp" alt="Graham Jones - co-host of The Podcast Nobody Asked For" loading="lazy" width="160" height="160" />
         </div>
         <h3>Graham</h3>
         <p>Graham spends most of his time being delightfully middle class. He doesn't believe badgers are real and thinks Mad Max: Fury Road is boring. His faithful hound Bowie is often heard snoring in the background.</p>
       </div>
       <div class="host-card">
         <div class="host-img-wrap">
-          <img
-            src="Ian.webp"
-            alt="Ian Harries - co-host of The Podcast Nobody Asked For"
-            loading="lazy"
-            width="160"
-            height="160"
-          />
+          <img src="Ian.webp" alt="Ian Harries - co-host of The Podcast Nobody Asked For" loading="lazy" width="160" height="160" />
         </div>
         <h3>Ian</h3>
         <p>Ian is often found lamenting the state of Welsh rugby and trying to watch the entire back catalogue of Nicolas Cage films and Chicago Fire episodes. He likes long walks in the park and Toby Jones once accidentally hit him with a suitcase.</p>
@@ -870,29 +994,11 @@
 
   <div class="tape-divider"></div>
 
-  <!-- SUBMIT A TOPIC -->
-  <section id="submit" class="reveal">
-    <div class="submit-inner">
-      <span class="section-label">// Get Involved</span>
-      <h2>Submit A Topic</h2>
-      <p>Do you have a Top 3 list nobody else is arguing about? Send it in. If it's niche, weird, or mildly unhinged, we probably want to fight about it.</p>
-      <a href="https://forms.gle/dcbdkxb8yjrKk77t9" class="submit-btn" target="_blank" rel="noopener">📬 Submit A Topic</a>
-    </div>
-  </section>
-
-  <div class="tape-divider"></div>
-
-  <!-- LISTEN -->
-  <section id="listen" class="reveal">
-    <span class="section-label">// Find Us</span>
-    <h2>Listen, Follow & Support</h2>
+  <!-- FOLLOW & SUPPORT -->
+  <section id="follow" class="reveal">
+    <span class="section-label">// Stay Connected</span>
+    <h2>Follow & Support</h2>
     <div class="links-grid">
-      <div class="link-group">
-        <h3>Listen Here</h3>
-        <a href="https://podcasts.apple.com/gb/podcast/the-podcast-nobody-asked-for/id1531618753" target="_blank" rel="noopener"><span class="link-dot"></span>Apple Podcasts</a>
-        <a href="https://open.spotify.com/show/6RKT6u2w5B0Uin0czNpx0r?si=d97784d6326b4ff8" target="_blank" rel="noopener"><span class="link-dot"></span>Spotify</a>
-        <a href="https://shows.acast.com/podcast-nobody-asked-for" target="_blank" rel="noopener"><span class="link-dot"></span>Acast</a>
-      </div>
       <div class="link-group">
         <h3>Social</h3>
         <a href="https://www.instagram.com/thepodcastnobodyaskedfor" target="_blank" rel="noopener"><span class="link-dot"></span>Instagram</a>
@@ -903,6 +1009,10 @@
         <h3>Support</h3>
         <a href="https://www.patreon.com/thepodcastnobodyaskedfor" target="_blank" rel="noopener"><span class="link-dot"></span>Patreon</a>
         <a href="https://www.teepublic.com/stores/thepodcastnobodyaskedfor?ref_id=33739" target="_blank" rel="noopener"><span class="link-dot"></span>Merch Store</a>
+      </div>
+      <div class="link-group">
+        <h3>Get Involved</h3>
+        <a href="https://forms.gle/dcbdkxb8yjrKk77t9" target="_blank" rel="noopener"><span class="link-dot"></span>Submit A Topic</a>
       </div>
     </div>
   </section>
