@@ -230,6 +230,9 @@
       max-width: 900px;
       margin: 0 auto;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .section-label {
@@ -264,6 +267,7 @@
     }
 
     .about-text {
+      width: 100%;
       font-size: clamp(1rem, 2.5vw, 1.15rem);
       line-height: 1.8;
       color: var(--off-white);
@@ -375,6 +379,7 @@
       grid-template-columns: 1fr;
       gap: 1.5rem;
       text-align: center;
+      width: 100%;
     }
 
     @media (min-width: 520px) {
@@ -510,6 +515,7 @@
     }
 
     .acast-player {
+      width: 100%;
       border: 2px solid var(--red);
       overflow: hidden;
       border-radius: 2px;
@@ -521,6 +527,8 @@
       flex-wrap: wrap;
       gap: 0.75rem;
       margin-bottom: 0.5rem;
+      justify-content: center;
+      width: 100%;
     }
 
     .platform-link {
@@ -556,6 +564,7 @@
       display: grid;
       gap: 1.5rem;
       grid-template-columns: 1fr;
+      width: 100%;
     }
 
     @media (min-width: 640px) {
@@ -665,6 +674,7 @@
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 1rem;
       text-align: center;
+      width: 100%;
     }
 
     .link-group h3 {
@@ -708,6 +718,7 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 2.5rem;
+      width: 100%;
     }
 
     @media (min-width: 520px) {
