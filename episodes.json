@@ -1,0 +1,822 @@
+[
+  {
+    "name": "Films Where The Soundtrack Is Better Than The Film",
+    "type": "Regular",
+    "desc": "Expect Sharks, Zack Snyder and Hocus Pocus by Focus."
+  },
+  {
+    "name": "Movies You Love But Will Never Watch Again",
+    "type": "Regular",
+    "desc": "Expect depression, tiny horses and choose your own adventures."
+  },
+  {
+    "name": "Movies You Wish Had A Different Director",
+    "type": "Regular",
+    "desc": "Expect Sharks, the Hogwarts antichrist and the two less important hobbits."
+  },
+  {
+    "name": "Great Scenes in Terrible Movie",
+    "type": "Regular",
+    "desc": "Expect baby lakes, bottomless pits and Daddy Superman."
+  },
+  {
+    "name": "Which sitcom casts would survive longest in a slasher movie?",
+    "type": "Regular",
+    "desc": "Expect death, scientology, and fire squids."
+  },
+  {
+    "name": "Movie Presidents We Would Vote For",
+    "type": "Regular",
+    "desc": "Expect doomsday, John F Kennedy, and freedom."
+  },
+  {
+    "name": "Movies We Wish Didn't Have A Sequel",
+    "type": "Regular",
+    "desc": "Expect Robin Hood, Titanic 2: This Time It's Personal and a snoring dog."
+  },
+  {
+    "name": "Claustrophic Movies",
+    "type": "Regular",
+    "desc": "Expect Not Tommy Wiseau, the Birth Canal and a spelunk count."
+  },
+  {
+    "name": "Films To Watch To Improve A Bad Day",
+    "type": "Regular",
+    "desc": "Expect sandwiches, a codpiece and canned laughter."
+  },
+  {
+    "name": "Races in Movies (feat. Nate Saunders)",
+    "type": "Guest",
+    "desc": "Expect blind horses, Mick Hucknall and ways to improve F1."
+  },
+  {
+    "name": "Good Bad Movies",
+    "type": "Regular",
+    "desc": "Expect wigs, knees and inconsistent geography."
+  },
+  {
+    "name": "Post-apocalypse worlds where we could live our best life",
+    "type": "Regular",
+    "desc": "Expect laziness, matricide and the Maroon Goon."
+  },
+  {
+    "name": "Movies We Would Want To Add Santa To",
+    "type": "Regular",
+    "desc": "Expect elves, presents and mutants."
+  },
+  {
+    "name": "Top 3 of 2020",
+    "type": "Year In Review",
+    "desc": "Expect architects, Architects and subtitles."
+  },
+  {
+    "name": "Best Use Of Bowie",
+    "type": "Regular",
+    "desc": "Expect a french bulldog, jousting and sex panthers."
+  },
+  {
+    "name": "The Muppet Podcast Nobody Asked For",
+    "type": "Regular",
+    "desc": "Expect felt, fowl language and pregnant chickens."
+  },
+  {
+    "name": "Kids TV Shows that need an R-Rated Movie",
+    "type": "Regular",
+    "desc": "Expect dictators, child soldiers and the top left-hand corner of Wales."
+  },
+  {
+    "name": "Films We Should Be Ashamed For Loving (But Aren't)",
+    "type": "Regular",
+    "desc": "Expect all singing, all dancing and snuff movies."
+  },
+  {
+    "name": "Characters You Would Want On Your Super Bowl Team?",
+    "type": "Regular",
+    "desc": "Expect cheating, spying and bitterness."
+  },
+  {
+    "name": "Terrible People In Rom Coms",
+    "type": "Regular",
+    "desc": "Expect romance, birthdays and the final days of the Mayan civilization."
+  },
+  {
+    "name": "Villains Who Have A Point",
+    "type": "Regular",
+    "desc": "Expect hangings, interjections and seizing the means of production."
+  },
+  {
+    "name": "Films Made With Basically No Money",
+    "type": "Regular",
+    "desc": "Expect a fearful Spielberg, a money hose and roughly $1,776,261"
+  },
+  {
+    "name": "Strongest Movie Villain We Could Defeat",
+    "type": "Regular",
+    "desc": "Expect mould, Derry Girls crossovers and heroically doing absolutely nothing."
+  },
+  {
+    "name": "Movie & TV Nights Out",
+    "type": "Regular",
+    "desc": "Expect competitive dancing, The Crown & Treaty and Bobolo Bakers' Wailers."
+  },
+  {
+    "name": "Animated Characters We Could Survive A Zombie Apocalypse With",
+    "type": "Regular",
+    "desc": "Expect lactose free astronauts, Alexander Hamilton and The Adventures of Baron Court and Kilburn."
+  },
+  {
+    "name": "Video Games That Should Be Movies",
+    "type": "Regular",
+    "desc": "Expect blood baby mazes, Ian's mate's shed and making today a perfect day for you."
+  },
+  {
+    "name": "Pointless Super Powers (That Are Still Quite Cool)",
+    "type": "Regular",
+    "desc": "Expect questionable dolphin science, matter eating and the Teenage Anthropomorphic Ninja Turtles."
+  },
+  {
+    "name": "Movies Improved By Adding A Wrestler",
+    "type": "Regular",
+    "desc": "Expect hands, badly done decapitations and Shafts."
+  },
+  {
+    "name": "Performances That Didn't Win An Oscar",
+    "type": "Regular",
+    "desc": "Expect half sized Oscars, New Vienna and a live ordination."
+  },
+  {
+    "name": "Exciting Films About Boring Things",
+    "type": "Regular",
+    "desc": "Expect a pig cadaver pillow, Not Willem Dafoe and Where In The World is Anthony Hopkins(tm)."
+  },
+  {
+    "name": "Movie Meals",
+    "type": "Regular",
+    "desc": ""
+  },
+  {
+    "name": "Movie's Society Tells Us To Love But We Don;t",
+    "type": "Regular",
+    "desc": "Expect waggles, whelms and David Cronenberg's The Barnacle."
+  },
+  {
+    "name": "Songs By Fictional Artists",
+    "type": "Regular",
+    "desc": "Expect interrailing, box jellyfish and last minute additions to spotify."
+  },
+  {
+    "name": "Fictional Pets We Would Like To Own",
+    "type": "Regular",
+    "desc": "Expect snozberries, suburban tapirs and The Aforementioned Russian Dogs."
+  },
+  {
+    "name": "Movies We Could Talk About For 10 Minutes Without Researching",
+    "type": "Regular",
+    "desc": "Expect filibustering, paninos and Alexander Hamilton Jones."
+  },
+  {
+    "name": "Villain Origin Stories We Would Watch",
+    "type": "Regular",
+    "desc": "Expect the nefarious Bill Volume, tucked away anvils and a heavy dose of chutzpah."
+  },
+  {
+    "name": "The Midsommar Special (Scenes From The FIlm That Stuck With Us)",
+    "type": "Midsommar Special",
+    "desc": "Expect Ariana Grande, Brazilian Football Legend Pele and 2 Mid 2 Sommar in Space."
+  },
+  {
+    "name": "Magical Objects You'd Like To Own",
+    "type": "Regular",
+    "desc": "Expect disco, Deaths of a Salesman and The Knob Shop just outside of Reading town centre."
+  },
+  {
+    "name": "Films We Want To See in LEGO",
+    "type": "Regular",
+    "desc": "Expect the pop punk sensations Kiefer Sutherland, Rotten and Ogrish silverware and Beneath The Planet Of The Apes in the bath."
+  },
+  {
+    "name": "Long Takes",
+    "type": "Regular",
+    "desc": "Expect umms, errs and Elton John's grassy knoll"
+  },
+  {
+    "name": "Movie Disasters We Could Survive",
+    "type": "Regular",
+    "desc": "Expect disaster related peril, liquid death water and Ian's Dad."
+  },
+  {
+    "name": "Movies Where It Isn't Coming Home",
+    "type": "Regular",
+    "desc": "Expect VAR, 10 gorillas vs a T-Rex and roughly 37.3 tonnes of seagull."
+  },
+  {
+    "name": "Character Swaps or: Taking A Character An Actor Has Played In One Film And Putting Him Into Another That The Actor Was In",
+    "type": "Regular",
+    "desc": "Expect tripods, Passion of the Christ merchandise and a good stampling."
+  },
+  {
+    "name": "Non-Comic Book Suicide Squad Members",
+    "type": "Regular",
+    "desc": "Expect fleshy weapons, Happy Little Bunny Boy and Christopher Lee's little oven."
+  },
+  {
+    "name": "Films Less Than 90 Minutes",
+    "type": "Regular",
+    "desc": "Expect Troy Deeney, obsessively rating and it being all for you, Richard."
+  },
+  {
+    "name": "Fictional Holiday Destinations",
+    "type": "Regular",
+    "desc": "Expect Ayahuasca, unsanctioned basketball tournaments and space manatees."
+  },
+  {
+    "name": "Live Action Remakes We Would Watch",
+    "type": "Regular",
+    "desc": "Expect pizza dragons, the self-titled debut album from Sexy Sword Fight and Kids Robot Les Mis."
+  },
+  {
+    "name": "Films We Would Add Nicolas Cage To (feat. Darryl from Cage Rage)",
+    "type": "Guest",
+    "desc": "Expect an infinite number of middle age actors, Nicolas Cage's Bake Off and The Golden Hog."
+  },
+  {
+    "name": "Films We Would Set In Space",
+    "type": "Regular",
+    "desc": "Expect Prime Minister Stegasaurus, seductive space helmets and flat space conspiracy theories."
+  },
+  {
+    "name": "Bumper Birthday Beery Breakfast Bonanza: Films We Haven't Chosen Yet",
+    "type": "Birthday Special",
+    "desc": "Expect underground car park magicians, imaginary neon and the podcast translated for Whales."
+  },
+  {
+    "name": "Actors We Want As The Next 007",
+    "type": "Regular",
+    "desc": "Expect implied ships, double knolls and The Blood Eagle & The Bear."
+  },
+  {
+    "name": "Controversial Movie Opinions",
+    "type": "Regular",
+    "desc": "Expect data driven opinions, a small monkey face and the winning lottery numbers."
+  },
+  {
+    "name": "Fictional Sports Matches We Would Want To Attend",
+    "type": "Regular",
+    "desc": "Expect the harbinger of Flacco, Curling experts and the problem with Luton Airport."
+  },
+  {
+    "name": "Horror Villains We Want To See In Romantic Comedies",
+    "type": "Regular",
+    "desc": "Expect leaky Papa Smurf, 100 shots of beer and an Egg triple threat match."
+  },
+  {
+    "name": "Films That Should Be Remade As A Musical",
+    "type": "Regular",
+    "desc": "Expect meaty content, disappointing Parisian windmills and Sting's distilled bathwater."
+  },
+  {
+    "name": "Heists We Could Pull Off",
+    "type": "Regular",
+    "desc": "Expect dog heists, prison battenberg and being forcibly removed from The Sistine Chapel"
+  },
+  {
+    "name": "Songs We Would Adapt Into Films",
+    "type": "Regular",
+    "desc": "Expect C-3PO on a bad day, a Radiohead Cul-De-Sac and The Big Jet Ski Heap In The Pie."
+  },
+  {
+    "name": "\"Rotten\" Films We Love",
+    "type": "Regular",
+    "desc": "Expect running with the bulls, Winston Churchill quotes and kid injury bonuses."
+  },
+  {
+    "name": "Remakes We Didn't Realise Were Remakes",
+    "type": "Regular",
+    "desc": "Expect Graham's bell curve, Gary Oldmanesia and Lasagna Love Stories."
+  },
+  {
+    "name": "Movie Marathons",
+    "type": "Regular",
+    "desc": "Expect lactose intolerance intolerance, melting llamas and dwarf tossing."
+  },
+  {
+    "name": "Top 3 of 2021 (or: Movie Houses We'd Self Isolate In)",
+    "type": "Regular",
+    "desc": "Expect disenfranchised pork pies, honey and lemon lemsip and James Gunn's twitter."
+  },
+  {
+    "name": "John Travolta Films That Would Be Better With Nicolas Cage",
+    "type": "Regular",
+    "desc": "Expect Galactus Jones, Face Swap USA and a 2 tonne gorilla."
+  },
+  {
+    "name": "Nicolas Cage Films That Would Be Better With John Travolta",
+    "type": "Regular",
+    "desc": "Expect the reJohnaiisance, the Shia LeBeouf peninsula and Orangutan Speed Awareness Courses."
+  },
+  {
+    "name": "Crossovers We Want To See",
+    "type": "Regular",
+    "desc": "Expect London Irish's mashed potato, Emo Fyre Festival and Definitely Not Ian."
+  },
+  {
+    "name": "Movie Characters Who Should Start A Podcast",
+    "type": "Regular",
+    "desc": "Expect Orbit of Experts, Messiah muscle puns and the okayest movie ever."
+  },
+  {
+    "name": "Characters Who Should Have Retired",
+    "type": "Regular",
+    "desc": "Expect The Lost Power Vacuum, Sci-Fi Anxiety and Graham Taylor Elton John."
+  },
+  {
+    "name": "Films That Got History Wrong (Or: Movies Graham Won't Let Me Talk About)",
+    "type": "Regular",
+    "desc": "Expect Triple H in a toga, vicious lampooning and Ian's history degree."
+  },
+  {
+    "name": "Triumphant Returns",
+    "type": "Regular",
+    "desc": "Expect loosely factual anecdotes, fizzy gravy and Warhammer."
+  },
+  {
+    "name": "Films Better If The Cast Were Replaced By Talking Animals",
+    "type": "Regular",
+    "desc": "Expect geese and cow meat yielding ratios, the most professory of the dinosaurs and Snoop Dogg."
+  },
+  {
+    "name": "Movie Plots That Would Make For A Good Documentary",
+    "type": "Regular",
+    "desc": "Expect a sorbet for the mind, the bassist for The Sopranos and God Emperor Louis Theroux."
+  },
+  {
+    "name": "Actors Who Need An \"Unbearable Weight Of Massive Talent\"",
+    "type": "Regular",
+    "desc": "Expect Carl Weathers Sorbet, Dolphinmonkeypigs and around 27 billion dollars."
+  },
+  {
+    "name": "Minor Star Wars Characters Who Need A Spin-Off",
+    "type": "Regular",
+    "desc": "Expect Endor Slang, Hutt Custard and The Super Furry Wookiees"
+  },
+  {
+    "name": "Favourite Films We Didn't Understand",
+    "type": "Regular",
+    "desc": ""
+  },
+  {
+    "name": "Disney Movies That Need A Sci-Fi Sequel",
+    "type": "Regular",
+    "desc": "Expect Big Marmalade, puppets in the wild and distractions from the machine uprising."
+  },
+  {
+    "name": "The Midsommar Special II (feat. Pawel Pogorzelski): Movies We Would Double Bill With Midsommar",
+    "type": "Midsommar Special",
+    "desc": "Expect The Midsommar Book Club, the lessening of the sorbet effect and Warwick Davies: Spirit Guide."
+  },
+  {
+    "name": "Most Extreme Jackass Stunts We Think We Could Do",
+    "type": "Regular",
+    "desc": "Expect tottering with the bulls, cheese rolling and Silly Chaps."
+  },
+  {
+    "name": "Movies That Would Be Completely Different If They Had a Smartphone",
+    "type": "Regular",
+    "desc": "Expect the chilly void of space, Postlethwaite's marionettes and the surprising height of Peppa Pig."
+  },
+  {
+    "name": "Comedy Actors We Want To See In Horror Movies (feat. Rajiv Karia)",
+    "type": "Guest",
+    "desc": "Expect comedy bridges, Moomin aversion and Beau Boucher"
+  },
+  {
+    "name": "Legacy Sequels We Would Watch",
+    "type": "Regular",
+    "desc": "Expect Brawl In Jurassic Park, flogging a dead pegasus and the cruel speed of mortality"
+  },
+  {
+    "name": "Movie Characters Christopher Walken Should Have Played (feat. The Church Of Tarantino)",
+    "type": "Regular",
+    "desc": "Expect We're Walken Here, the pulpiest of romance and Wild Mountain Thyme."
+  },
+  {
+    "name": "Films Where The Soundtrack Is Better Than The Film: REVISITED",
+    "type": "Birthday Special",
+    "desc": "Expect the NSA, The Rules of BAWF and the need for a universal scale of drunkness."
+  },
+  {
+    "name": "Fantasy Sport",
+    "type": "Regular",
+    "desc": "Expect sports communism, NERF stabbies and Ian being put on IR."
+  },
+  {
+    "name": "Which Historical Figures Should Be In A Horror Movie",
+    "type": "Regular",
+    "desc": "Expect Edgar Allen Poe's That's So Raven, Rissoles but not Rillettes and Down Cannons."
+  },
+  {
+    "name": "Movies Where We Would Have Added Robots",
+    "type": "Regular",
+    "desc": "Expect The Hall of Fame Hall of Fame, The Opposite Jabba The Hut and Little Arthur."
+  },
+  {
+    "name": "Fictional Nations That Could Win A World Cup",
+    "type": "Regular",
+    "desc": "Expect the Jones Helix, Uruk Hai fracking and about $319."
+  },
+  {
+    "name": "Films We Didn't Realise Had So Many Sequels - sponsored by Verbal Diorama",
+    "type": "Regular",
+    "desc": "Expect Daddy Brolin, Graham's Haunted Water Flosser and definitely not the Dallas Cowboys."
+  },
+  {
+    "name": "Actors We Want To Play Santa",
+    "type": "Regular",
+    "desc": "Expect paying to watch Graham sleep, communist dolphins and meaty chicken scoopy scoop."
+  },
+  {
+    "name": "Top 3 Films & TV Shows of 2022",
+    "type": "Year In Review",
+    "desc": "Expect mammoth rabbits, laws that govern the lands of ghosts and our debut album \"Narwhal At The Cenotaph\"."
+  },
+  {
+    "name": "Movies That Should Have Been About The Sidekick (Patreon Request)",
+    "type": "Regular",
+    "desc": "Expect T-Rex Boy, Olivia Coleman roleplay and draft excluder romance."
+  },
+  {
+    "name": "Dystopian Versions Of Kids TV Shows We Would Watch",
+    "type": "Regular",
+    "desc": "Expect the duck reproductive arms race, rat spleen honey and The Pluto Paradox"
+  },
+  {
+    "name": "Potential Sequels To Cocaine Bear",
+    "type": "Regular",
+    "desc": "Expect the Jaws of the bear world, the seagull narrative and The One With The Dolphin Fisting."
+  },
+  {
+    "name": "Sitcom Characters Who Should Have Serious Prequels",
+    "type": "Regular",
+    "desc": "Expect Geckos in the Spanish Civil War, crying into a lathe and Daniel Riccardo: In Pursuit Of Greatness"
+  },
+  {
+    "name": "Films To Watch On A Plane",
+    "type": "Regular",
+    "desc": "Expect Jamie Brie Curtis, famously coy MIGs and The Kendall Rules"
+  },
+  {
+    "name": "Characters They Recast And Hoped We Wouldn't Notice (secretly featuring Petros Patsilivas)",
+    "type": "Guest",
+    "desc": "Expect volcanic protein, IndianaJones4ification and Michelle Pfeiffer's Wheel of Pain."
+  },
+  {
+    "name": "Movies That Would Work As A TV Show",
+    "type": "Regular",
+    "desc": "Expect Tarantino's 2011 Rugby World Cup, the agreed upon taste of banana and a savoury meaty advent calendar but for lunch."
+  },
+  {
+    "name": "Actors We Would Start A Podcast About Where We Watch All Their Films (If We Had The Time To Start A New Podcast)",
+    "type": "Regular",
+    "desc": "Expect getting contextually older, Roald Dahl's Yeasty Armchair and You Be the Anchor That Keeps My Feet On the Ground, I\"ll Be The Wings Tha..."
+  },
+  {
+    "name": "Reality TV Shows We Could Win",
+    "type": "Regular",
+    "desc": "Expect Redcoats on the Moon, 60lbs of scallops from a van and the third triangle of the segway/segue triforce."
+  },
+  {
+    "name": "The Third Midsommar Special (feat. Nille Svensson)",
+    "type": "Midsommar Special",
+    "desc": "Expect codeine, non-Swedeish flowers and dancing until you're skeletons."
+  },
+  {
+    "name": "Historical Inaccuracies That Made Films Better",
+    "type": "Regular",
+    "desc": "Expect cobbled together submarines, a lot of Ox and a boring amount of lions."
+  },
+  {
+    "name": "100th Episode Special: Shows That Went On Longer Than We Thought They Would",
+    "type": "Regular",
+    "desc": "Expect 9214 minutes, service station apocalypse and the very, very, very, very, exceedingly boring Ken Barlow"
+  },
+  {
+    "name": "Tropes We Want To See Gone From Cinema",
+    "type": "Regular",
+    "desc": "Expect trope play, the opposite of the room of requirement and a complete lack of goblins."
+  },
+  {
+    "name": "Toys That Should Be Turned Into Movies",
+    "type": "Regular",
+    "desc": "Expect stealing babies to go to the cinema, Damp Twix and the gifting of the dragon."
+  },
+  {
+    "name": "Fictional Doctors We Would Want Operating On Us (Graham's Ankle Special)",
+    "type": "Regular",
+    "desc": "Expect Graham's mosh addiction, the McDonald's Hierachy of Surgeons and a nice glass of warm water."
+  },
+  {
+    "name": "Films We Still Convince Ourselves Could Happen (Rugby World Cup Special)",
+    "type": "Regular",
+    "desc": "Expect the big daddy church, Ian and Graham's pending shotgun licenses and definitely winning the lottery."
+  },
+  {
+    "name": "Films We Want To See With A Different Director REVISITED",
+    "type": "Birthday Special",
+    "desc": "Expect Tortle Portals, the pie index and not being able to swing a cat at Seth Green."
+  },
+  {
+    "name": "Characters Who Share A Name We Want To Swap Places",
+    "type": "Regular",
+    "desc": "Expect the sad eyes of David Duchovny, the hungry eyes of Jon Hamm and the silent eyes of H."
+  },
+  {
+    "name": "Fictional Destination Wedding Locations",
+    "type": "Regular",
+    "desc": "Expect productive insomnia, Liverpool's 1996 FA Cup attire and the back way into Seven Sisters."
+  },
+  {
+    "name": "Movie Scenes We Want To Watch On The Vegas Sphere",
+    "type": "Regular",
+    "desc": "Expect Sommewhere Over The Rainbow, articulated Playstation 2s and The Roman God of Cutlery and Dogs."
+  },
+  {
+    "name": "Characters We Would Want To See On Taskmaster",
+    "type": "Regular",
+    "desc": "Expect the Tsunami Splashback System, the 13th Month Year and Wild Boar Pate that we are saving for a special occassion."
+  },
+  {
+    "name": "Top 3 Films & TV Shows of 2023 (or Top 3 Films & TV Shows of 2023 Graham Wishes He Had Watched)",
+    "type": "Year In Review",
+    "desc": ""
+  },
+  {
+    "name": "Films We Would Add Godzilla To (feat. Harley from Fandomentals)",
+    "type": "Guest",
+    "desc": "Expect cloaca candles, double gilling a shark and adopting a 29 year old man."
+  },
+  {
+    "name": "Things We Forgot Samuel L Jackson Was In",
+    "type": "Regular",
+    "desc": "Expect the forecasted GDP of Haiti, The Immortal Piano Man and Funny People but with dinosaurs."
+  },
+  {
+    "name": "Fictional Films",
+    "type": "Regular",
+    "desc": "Expect double colons, the vegan energy spectrum and the apes from Planet of the Horses"
+  },
+  {
+    "name": "People Who Need A Biopic",
+    "type": "Regular",
+    "desc": "Expect the demilitarized Moneyball zone, Gandalfing Lakeith Stanfield and half a pint of yoghurt up Dr Kellogg."
+  },
+  {
+    "name": "Books That Aren\u2019t Yet Films But Should Be Films",
+    "type": "Regular",
+    "desc": "Expect the Demon in Brum, Andy Serkis at Ian's Death Bed and Beekeepers who are also keep bees"
+  },
+  {
+    "name": "The Best Terrible VFX Movies",
+    "type": "Regular",
+    "desc": "Expect retroactively bleeping the Johns, the Sean Bean death ratio and the availability of Lurtz."
+  },
+  {
+    "name": "Inferior Sequels We Still Love (feat. Jamie Lenman)",
+    "type": "Guest",
+    "desc": "Expect surf and turf pizza, Sonny Corleone's massive schlong and the salary of evil immortal clowns."
+  },
+  {
+    "name": "Fictional Royals We Would Like To Meet",
+    "type": "Regular",
+    "desc": "Expect hench guards, an old man with a sword and the skeleton of a flamingo."
+  },
+  {
+    "name": "Infuriating Cliffhangers",
+    "type": "Regular",
+    "desc": "Expect running away and joining the Serkis, an inspector who specifically did not call and a night frisbee playing physics teachers who lived in a van in the car park."
+  },
+  {
+    "name": "Infuriating Cliffhangers 2: The Payoff",
+    "type": "Regular",
+    "desc": ""
+  },
+  {
+    "name": "Potential Worst Product Placement",
+    "type": "Regular",
+    "desc": "Expect scream powered planes, Space Jam's pioneering use of onion rings and the benefits of bulking by eating beaver."
+  },
+  {
+    "name": "The Midsommar Special Goes Forth (feat. Zoe Hegedus)",
+    "type": "Midsommar Special",
+    "desc": "Expect menstruation cocktail humour, a porridge pie for second breakfast and 10,000 hours of gnocchi"
+  },
+  {
+    "name": "Films Where They Barely Say Anything",
+    "type": "Regular",
+    "desc": "Expect beaver butchers/seamstresses, 57 inches of chest and Transformers 12: Rise of the Monkeyboys."
+  },
+  {
+    "name": "Characters With The Best Kept Secrets",
+    "type": "Regular",
+    "desc": "Expect ladies wine Thursdays, the renaissance of comedians taking their parents on holiday and Greg Sestero (but not for business use)."
+  },
+  {
+    "name": "Films That Would Be Better If Everybody Died",
+    "type": "Regular",
+    "desc": "Expect Gr''eeg'g, 40 Days and 40 Wayne Knights and It Follows but with less shagging and more bears."
+  },
+  {
+    "name": "Movies Or TV Shows That Make Us Want To Change Profession",
+    "type": "Regular",
+    "desc": "Expect the heroic Chase Daniel, a passata emulsion and Shane Ritchie crying at a carvery over his gulab jamun."
+  },
+  {
+    "name": "Fictional Characters You Would Want In a Fantasy League",
+    "type": "Regular",
+    "desc": "Expect Post-Apocalyptic Tipping Point with Ben Shephard, levelling out to mediocrity and seeing a little silhouetto of a man."
+  },
+  {
+    "name": "Jobs Jason Statham Should Have In An Action Film",
+    "type": "Regular",
+    "desc": "Expect a Statham In An Iron Mask, the \"Thanks Obama\" end point and the secret language of fruit."
+  },
+  {
+    "name": "4th Birthday: The League Of Good Bad Movies REVISITED",
+    "type": "Birthday Special",
+    "desc": "Expect Off-Brand Butter Crocks, James Hewitt and Ian's Magnum Opus."
+  },
+  {
+    "name": "Documentaries To Watch To Improve A Bad Day",
+    "type": "Regular",
+    "desc": "Expect the 900, Supermarket Sushi and The Colour Out Of Space being back in space."
+  },
+  {
+    "name": "Unlikely Heroes",
+    "type": "Regular",
+    "desc": "Expect Happy Clappy Story Time, Shame in a gimp mask and Blue Lagoon: The Awakening"
+  },
+  {
+    "name": "Mighty Penguins: Interview Special",
+    "type": "Regular",
+    "desc": ""
+  },
+  {
+    "name": "Films That Should Have Their Own Popcorn Bucket",
+    "type": "Regular",
+    "desc": "Expect a Wonka's dozen, 0.0029 cubic metres and what you call a canoe that's not yours."
+  },
+  {
+    "name": "Christmas Films We Would Add Muppets To",
+    "type": "Regular",
+    "desc": "Expect chocolate covered custard creams, Coogan's tendrils and Link Hogthrob"
+  },
+  {
+    "name": "Films That Should End with a Boxing Match",
+    "type": "Regular",
+    "desc": "Expect aural quaaludes, Buckinghamshire Rules and follow up questions."
+  },
+  {
+    "name": "Top 3 Films & TV Shows of 2024: Part 1",
+    "type": "Year In Review",
+    "desc": "Expect Grease 2 Midsommar: The Podcast, a Secret Honeymoon to Iceland and lengthy, girthy beasts."
+  },
+  {
+    "name": "Top 3 Films & TV Shows of 2024: Part 2",
+    "type": "Year In Review",
+    "desc": "Expect The Gleeson average, the life span of 8 out of 10 cats and the Tyrod Taylor of acting."
+  },
+  {
+    "name": "Fictional Pubs We Would Go To Until This All Blows Over",
+    "type": "Regular",
+    "desc": "Expect middle class ghosts, thicc biscuits and Shire-based SAAS companies."
+  },
+  {
+    "name": "Superb Owls",
+    "type": "Regular",
+    "desc": "Expect diss track EGOTs, the political nature of the stoat and the declining population of sparrows."
+  },
+  {
+    "name": "Disney Characters Who Could Be Serial Killers",
+    "type": "Regular",
+    "desc": "Expect the secret host of NPR's Serial, weeping at Ally Pally and the most litigious episode yet."
+  },
+  {
+    "name": "Film Duos You Want To Do A Podcast (feat. Jamie Allerton)",
+    "type": "Guest",
+    "desc": "Expect Prince Philip's nal-nal, homosoapians and Highlander 2: The Quickening"
+  },
+  {
+    "name": "Unexpected Full Frontal Male Nudity (feat. The Church Of Tarantino)",
+    "type": "Guest",
+    "desc": "Expect 2 single duvets, roughly 48.3 seconds per man and explaining Keith Chegwin to an American."
+  },
+  {
+    "name": "Live Action Movies That Need An Animated Remake (feat. Em from Verbal Diorama)",
+    "type": "Guest",
+    "desc": "Expect a half jar of Imhotep, Iain Stirling in a bear and 6\"3 Golden Retrievers."
+  },
+  {
+    "name": "Actors Who Should Host A Travel Show",
+    "type": "Regular",
+    "desc": "Expect the Double Act Agreements, what Debbie did and Michael Portillo's middle name."
+  },
+  {
+    "name": "Actors The MCU Wasted",
+    "type": "Regular",
+    "desc": "Expect lofty dreams of a multiverse, Taika Needs Jeff and a significant 16,329kg"
+  },
+  {
+    "name": "Surrogate Father Figures In Film And TV (An Our Boy Request)",
+    "type": "Regular",
+    "desc": "Expect tree based biomes, the unconventional means loophole and optimal battery management."
+  },
+  {
+    "name": "Scariest Films That Aren't Horror Films",
+    "type": "Regular",
+    "desc": "Expect full salt coke, self-negging and The Podcast Nobody Asked For's Bleak Break."
+  },
+  {
+    "name": "Memes That We Could Make Into A Movie",
+    "type": "Regular",
+    "desc": "Expect a stealthy masseuse, French punk bands and being the only podcast that didn't have Tim Key on this week."
+  },
+  {
+    "name": "Characters Who Would Elope Without Telling Anyone",
+    "type": "Regular",
+    "desc": "Expect the Mount Rushmore of Downtrodden Men, lack of lime disease and a surprising amount of trees."
+  },
+  {
+    "name": "Movies We Would Like To Revisit 28 Years Later",
+    "type": "Regular",
+    "desc": "Expect a wedding that hasn't happened but has happened, the winter of the summer and missing your motorway exit."
+  },
+  {
+    "name": "Tastiest Pokemon",
+    "type": "Regular",
+    "desc": "Expect Peter Squirtle, the North Korean Embassy in Acton and worms in tequila going the same way as quicksand."
+  },
+  {
+    "name": "Bens",
+    "type": "Regular",
+    "desc": "Expect The Ben Density Index (BDI), an anime character called Graham and cutting a journalist's arm off with a Swiss Army Knife."
+  },
+  {
+    "name": "TV Shows* (*Picked By Toddlers)",
+    "type": "Regular",
+    "desc": "Expect hoarding rubber eggs, Butter Babe Graham and Hell's ambassador to France."
+  },
+  {
+    "name": "The Podcast Nobody Asked For Climbs A Mountain",
+    "type": "Regular",
+    "desc": "Expect a woman probably not called Barbara, a Firefighter from Tenby and it levelling out soon."
+  },
+  {
+    "name": "Undrafted REVISITED: Arnie Movies",
+    "type": "Birthday Special",
+    "desc": "Expect Potato Induced Car Accidents, Gubernatorial Elections and Commando No Matter What."
+  },
+  {
+    "name": "Films We\u2019re Ashamed We Haven\u2019t Seen Yet",
+    "type": "Regular",
+    "desc": "Expect charade practice, Kev induced giggles and tainting the podcast with lies."
+  },
+  {
+    "name": "Films We Shouldn't Admit We Enjoyed (Live at The Cheerful Earful Podcast Festival)",
+    "type": "Live",
+    "desc": "Expect The Girl From Ipanema, the surprising apperance of Ian's mum and a good, old fashioned clap-o-meter."
+  },
+  {
+    "name": "Movies That Should Have A Theme Park Attraction",
+    "type": "Regular",
+    "desc": "Expect the bodies under Noel Edmonds' patio, getting into the car of a Swedish delivery driver and whizzy whizzy round round."
+  },
+  {
+    "name": "Ways To Save Ian From Welsh Rugby",
+    "type": "Regular",
+    "desc": "Expect Steve Tandy looking quite scary, the hospitality manager at the Madejski Stadium and making sure that you're dressed nice while drinking urine."
+  },
+  {
+    "name": "Movie Villains We Would Put In A Pantomime",
+    "type": "Regular",
+    "desc": "Expect sugar-coated murder puzzles, Johnny Panama and immediately filling in Judi Dench."
+  },
+  {
+    "name": "Top 3 Films And TV Shows of 2025",
+    "type": "Year In Review",
+    "desc": "Expect Zoom zooming, really over the top sexy and being addicted to attractive Chicago Firefighters."
+  },
+  {
+    "name": "Worst Films We've Watched Because We Love An Actor",
+    "type": "Regular",
+    "desc": "Expect the one where the T-Rex eats the 'Ceratops, one of the most recognisable men from behind and Rambo underwear."
+  },
+  {
+    "name": "Characters Who Could Dominate A Winter Olympic Event",
+    "type": "Regular",
+    "desc": "Expect skijoring, the wall mouse and taking up curling after moving to Farnham."
+  },
+  {
+    "name": "Gameshows That Sound Like They Could Be Bad Action Films",
+    "type": "Regular",
+    "desc": ""
+  }
+]
