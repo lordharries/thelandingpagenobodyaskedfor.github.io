@@ -453,6 +453,31 @@
       background: rgba(253,186,10,0.05);
     }
 
+    /* ── HERO BADGES ── */
+    .hero-badges {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 1s 0.8s both;
+      flex-wrap: wrap;
+    }
+
+    .hero-badge-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-badge-img {
+      height: 77px;
+      width: auto;
+      display: block;
+    }
+
     /* ── HERO LISTEN CTA ── */
     .hero-listen {
       display: flex;
@@ -873,6 +898,16 @@
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 4.2c3.3 0 6.15 1.575 7.95 4.05.375.525.225 1.275-.3 1.65-.525.375-1.275.225-1.65-.3C16.575 7.8 14.4 6.6 12 6.6c-2.4 0-4.575 1.2-5.925 3C5.7 10.125 4.95 10.275 4.425 9.9c-.525-.375-.675-1.125-.3-1.65C5.925 5.775 8.7 4.2 12 4.2zM12 7.8c1.875 0 3.525.9 4.575 2.25.375.525.225 1.275-.3 1.65-.525.375-1.275.225-1.65-.3-.675-.9-1.65-1.2-2.625-1.2s-1.95.45-2.625 1.2c-.375.525-1.125.675-1.65.3-.525-.375-.675-1.125-.3-1.65C8.475 8.7 10.125 7.8 12 7.8zm0 3.6c1.2 0 2.1.975 2.1 2.1 0 .75-.45 1.425-1.05 1.8v3.15c0 .6-.45 1.05-1.05 1.05s-1.05-.45-1.05-1.05V15.3c-.6-.375-1.05-1.05-1.05-1.8 0-1.125.9-2.1 2.1-2.1z"/></svg>
           Apple Podcasts
         </a>
+      </div>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-badge-item">
+        <a href="https://goodpods.com/leaderboard/top-100-shows-by-category/tv-and-film/tv?indie=true&period=alltime#90863658" target="_blank" rel="noopener">
+          <img src="https://storage.googleapis.com/goodpods-images-bucket/leaderboard_badges/tv-and-film_tv_top50.png" alt="Goodpods Top 100 TV Indie Podcasts" class="hero-badge-img" loading="lazy" />
+        </a>
+      </div>
+      <div class="hero-badge-item">
+        <img src="Nominee_Badge_Black_-_Transparent_1.svg" alt="Award Nominee Badge" class="hero-badge-img" loading="lazy" />
       </div>
     </div>
     <div class="hero-scroll-hint">
