@@ -187,10 +187,10 @@
     .hero-tagline span { color: var(--red); }
 
     .hero-scroll-hint {
-      position: absolute;
-      bottom: 1.5rem;
-      left: 50%;
-      transform: translateX(-50%);
+      position: relative;
+      bottom: auto;
+      left: auto;
+      transform: none;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -200,6 +200,7 @@
       letter-spacing: 0.2em;
       color: var(--red);
       animation: fadeIn 1s 1s both;
+      margin-top: 1.5rem;
     }
 
     .arrow-down {
@@ -543,7 +544,15 @@
       flex-shrink: 0;
     }
 
-    .merch-intro {
+    .merch-art-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #ffffff;
+      border-bottom: 3px solid var(--red);
+      margin-bottom: 1.2rem;
+      flex-shrink: 0;
+    }
       font-size: clamp(1rem, 2.5vw, 1.15rem);
       color: rgba(245,240,232,0.85);
       margin-bottom: 0.5rem;
@@ -1052,7 +1061,7 @@
     <h3 class="listen-subheading">Some Of Our Favourites</h3>
     <div class="episodes-grid">
       <article class="episode-card">
-        <div class="episode-art-wrap">
+        <div class="merch-art-wrap">
           <img src="Tshirt_1.png" alt="The Seagull Slayers Nobody Asked For T-Shirt design" class="episode-art" loading="lazy" width="600" height="600" />
         </div>
         <div class="episode-card-body">
@@ -1062,7 +1071,7 @@
         </div>
       </article>
       <article class="episode-card">
-        <div class="episode-art-wrap">
+        <div class="merch-art-wrap">
           <img src="Tshirt_2.png" alt="The New Podcast Order T-Shirt design" class="episode-art" loading="lazy" width="600" height="600" />
         </div>
         <div class="episode-card-body">
@@ -1072,7 +1081,7 @@
         </div>
       </article>
       <article class="episode-card">
-        <div class="episode-art-wrap">
+        <div class="merch-art-wrap">
           <img src="Tshirt_3.png" alt="The Nobody Asked Tour T-Shirt design" class="episode-art" loading="lazy" width="600" height="600" />
         </div>
         <div class="episode-card-body">
@@ -1097,6 +1106,14 @@
         <ul class="award-nominations">
           <li><span class="award-badge">NOMINATED</span> Best Social</li>
           <li><span class="award-badge">NOMINATED</span> Best Tangent</li>
+        </ul>
+      </div>
+      <div class="award-ceremony">
+        <h3>Golden Lobes</h3>
+        <span class="award-year">2026</span>
+        <ul class="award-nominations">
+          <li><span class="award-badge">NOMINATED</span> Beyond The Feed</li>
+          <li><span class="award-badge">NOMINATED</span> Earworm Award</li>
         </ul>
       </div>
       <div class="award-ceremony">
