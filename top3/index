@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which are the Top 3...</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Archivo:wght@400;600;800&display=swap">
+<style>
+/* VOICE: late-night cinema foyer, cheeky and quick, a game first and an ad second
+   IDEA: a marquee light board over an awards podium, with the nominees laid out like ticket stubs
+   PICTURE: three medal slots on a stage, ten film tiles below that grey out as the field narrows
+   COLOUR and TYPE: TPNAF yellow #FFB901 on near-black, red as the sharp accent; Bungee marquee lettering, Archivo body
+   LAYOUT: one centred column up to 720px: marquee, category, podium, tile grid, lock-in, tries, then result, prize and podcast plug */
+:root{color-scheme:dark;--bg:#0d0b0a;--panel:#1a1614;--line:#2c2522;--ink:#f6efe2;--mut:#a89c8a;--y:#FFB901;--r:#e1261c;--ok:#3fa34d}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:radial-gradient(ellipse at 50% -10%,#2a1d08 0,var(--bg) 60%) fixed,var(--bg);color:var(--ink);font:16px/1.55 Archivo,system-ui,sans-serif;overflow-x:clip}
+a{color:var(--y)}
+.wrap{max-width:720px;margin:0 auto;padding:clamp(20px,4vw,40px) 16px 48px}
+.brand{display:flex;align-items:center;gap:12px;width:fit-content;margin:0 auto 14px;padding:8px 18px 8px 10px;border-radius:99px;background:#f6efe2;color:#2a2112;text-decoration:none;font-size:13px;line-height:1.3;box-shadow:0 6px 20px #0006}
+.brand img{width:72px;height:auto}
+.brand b{font-size:15px}
+.plogo{display:block;width:140px;height:auto;margin:0 0 12px}
+.marq{border:12px solid transparent;border-radius:10px;background:linear-gradient(var(--y),var(--y)) padding-box,radial-gradient(circle,#fff6c9 0 3px,#c99000 3.6px 4.4px,#241a00 5px) 0 0/18px 18px border-box;animation:chase 1.4s steps(2) infinite;box-shadow:0 0 50px #ffb90133;text-align:center;padding:14px 12px 12px;color:#120c00}
+@keyframes chase{to{background-position:0 0,9px 9px}}
+.marq h1{font:clamp(40px,9vw,68px)/1 Bungee,Impact,sans-serif;margin:0}
+.marq h1 span{display:block;font-size:.36em;letter-spacing:1px;margin-bottom:2px}
+.marq p{margin:6px 0 0;font-weight:800;font-size:14px}
+.cat{margin:22px 0 4px;text-align:center}
+.cat h2{font:800 clamp(24px,4.6vw,34px)/1.1 Archivo,sans-serif;margin:0;text-wrap:balance}
+.cat .m{color:var(--mut);margin:6px 0 0;font-size:15px}
+.how{text-align:center;color:var(--mut);font-size:14px;margin:10px auto 18px;max-width:52ch}
+.pod{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:end}
+.slot{appearance:none;font:inherit;color:var(--ink);text-align:center;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;padding:12px 8px;border-radius:10px 10px 0 0;background:linear-gradient(180deg,#2a2320,#171310);border:1px solid var(--line);border-bottom:5px solid var(--r);position:relative}
+.slot[data-k="0"]{min-height:150px}.slot[data-k="1"]{min-height:126px}.slot[data-k="2"]{min-height:110px}
+.slot .md{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font:18px/1 Bungee,sans-serif;color:#120c00;flex:none}
+.g0{background:linear-gradient(160deg,#ffe07a,var(--y) 55%,#b98200)}.g1{background:linear-gradient(160deg,#f1f1f1,#bfc3c7 55%,#7f858b)}.g2{background:linear-gradient(160deg,#f2b27a,#c9793a 55%,#7d4518)}
+.slot .sn{font-weight:800;font-size:clamp(13px,2.4vw,16px);line-height:1.2;overflow-wrap:anywhere;text-wrap:balance}
+.slot .sn.e{color:#5e524b;font-weight:600}
+.slot .lk{font:800 11px Archivo,sans-serif;color:var(--ok)}
+.slot.c{border-color:var(--ok);background:linear-gradient(180deg,#183a1e,#10200f)}
+.slot.lockd{cursor:default}
+.slot.next{border-color:var(--y)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:18px 0 0;padding:0;list-style:none}
+.tile{appearance:none;width:100%;min-height:58px;font:800 15px/1.2 Archivo,sans-serif;color:var(--ink);text-align:left;cursor:pointer;display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;background:#1d1815;border:1px solid var(--line);border-left:4px solid var(--y)}
+.tile:hover:not(:disabled){background:#2a2320}
+.tile .tn{flex:1;overflow-wrap:anywhere}
+.tile .b{flex:none;font:800 11px Archivo,sans-serif;padding:2px 7px;border-radius:99px;white-space:nowrap}
+.tile.on{opacity:.55;border-left-color:#5e524b}
+.tile.on .b{background:#3a312c;color:var(--ink)}
+.tile.pod .b{background:var(--y);color:#120c00}
+.tile.pod{border-left-color:var(--ok)}
+.tile.out{opacity:.35;text-decoration:line-through;border-left-color:#3a312c;cursor:not-allowed}
+.tile.out .b{background:#2c2522;color:var(--mut);text-decoration:none}
+.lock{display:flex;gap:12px;align-items:center;justify-content:space-between;margin:18px 0 0;flex-wrap:wrap}
+.tries{display:flex;gap:8px;align-items:center;color:var(--mut);font-size:14px}
+.tries i{width:14px;height:14px;border-radius:50%;background:var(--y);box-shadow:0 0 10px #ffb90188}
+.tries i.u{background:var(--line);box-shadow:none}
+button,.cta{font:800 15px Archivo,sans-serif;min-height:48px;padding:10px 20px;border-radius:8px;border:0;background:var(--y);color:#120c00;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+button.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+button:disabled{cursor:not-allowed}
+#go:disabled{opacity:.4}
+button:focus-visible,a:focus-visible{outline:3px solid var(--y);outline-offset:2px}
+.msg{min-height:24px;margin:10px 2px 0;font-size:14px;color:var(--mut)}
+.hist{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px}
+.hist li{display:flex;gap:10px;align-items:center;padding:8px 12px;border-radius:8px;background:var(--panel);border:1px solid var(--line);font-size:14px}
+.hist .e{flex:none;font-size:18px;letter-spacing:2px}
+.hist .t{color:var(--mut);overflow-wrap:anywhere}
+.end{margin-top:26px;padding:22px clamp(16px,3vw,28px);border-radius:12px;background:var(--panel);border:1px solid var(--line)}
+.end h3{font:clamp(24px,4.4vw,32px)/1.1 Bungee,sans-serif;color:var(--y);margin:0}
+.end .sub{color:var(--mut);margin:6px 0 16px}
+pre{background:#0f0c0b;border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin:0 0 10px;font:15px/1.5 ui-monospace,Menlo,monospace;white-space:pre-wrap}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+table{width:100%;border-collapse:collapse;margin:18px 0 6px;font-size:15px}
+td{padding:7px 4px;border-top:1px solid var(--line)}
+td.k{width:2.4em;font-family:Bungee,sans-serif;color:var(--y)}
+td.v{text-align:right;white-space:nowrap;color:var(--mut)}
+tr.off td{color:var(--mut)}tr.off td.k{color:var(--mut)}
+.small{font-size:13px;color:var(--mut)}
+.stats{margin:20px 0 0;padding:16px 0 0;border-top:1px solid var(--line)}
+.sn4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;text-align:center}
+.sn4 b{display:block;font:clamp(24px,5vw,32px)/1.1 Bungee,sans-serif;color:var(--y)}
+.sn4 span{font-size:12px;color:var(--mut);line-height:1.2;display:block}
+.dist{display:grid;gap:5px;margin:14px 0 0}
+.dist div{display:grid;grid-template-columns:4.2em minmax(0,1fr);gap:8px;align-items:center;font-size:13px;white-space:nowrap;color:var(--mut)}
+.dist i{display:block;height:22px;border-radius:4px;background:#3a312c;color:var(--ink);font:800 12px/22px Archivo,sans-serif;font-style:normal;text-align:right;padding-right:7px;min-width:24px}
+.dist i.me{background:var(--y);color:#120c00}
+.rec{margin-top:22px;padding:18px;border-radius:12px;background:linear-gradient(160deg,#fbf3d6,#f3dca0);color:#2a2112}
+.rec .rl{margin:0 0 12px;font:800 13px Archivo,sans-serif;color:#7a5a12}
+.rb{display:flex;gap:16px;align-items:flex-start}
+.poster{flex:none;width:84px;aspect-ratio:2/3;border-radius:6px;background:radial-gradient(circle at 50% 38%,#fff8c4 0 18%,#ffd84a 19% 30%,transparent 31%),repeating-conic-gradient(from 0deg at 50% 38%,#f7c6d9 0 10deg,#cfe6b8 10deg 20deg);display:grid;place-items:center;box-shadow:0 6px 16px #0003}
+.poster span{font-size:26px;color:#c8860a;margin-bottom:22%}
+.rec h4{font:clamp(22px,4vw,28px)/1.05 Bungee,sans-serif;margin:0;color:#2a2112}
+.rec p{margin:6px 0 0}
+.rec .ry{font-size:13px;color:#6b5a3a}
+.plug{margin-top:22px;padding:20px;border-radius:12px;background:var(--y);color:#120c00}
+.plug h4{font:800 20px/1.2 Archivo,sans-serif;margin:0 0 6px}
+.plug p{margin:0 0 14px}
+.plug .q{font-style:italic;font-weight:600}
+.plug .cta{background:#120c00;color:var(--y)}
+.next{margin-top:14px;text-align:center}
+.next b{font-variant-numeric:tabular-nums}
+.acts{display:flex;gap:8px;flex-wrap:wrap}
+.life{gap:6px}.life:disabled{opacity:.4}
+.llhelp{margin:6px 2px 0}
+.tile.ll{opacity:.35;text-decoration:line-through;border-left-color:var(--r);cursor:not-allowed}
+.tile.ll .b{background:var(--r);color:#fff;text-decoration:none}
+.wrap{position:relative}
+.snd{position:absolute;top:8px;right:16px;min-height:34px;padding:4px 12px;font-size:12px}
+@media (max-width:640px){.snd{position:static;display:flex;margin:0 0 10px auto}}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+.marq.win{animation:chase .18s steps(2) infinite,glow .6s ease-in-out 5}
+@keyframes glow{50%{box-shadow:0 0 90px #ffb901cc,0 0 30px #fff3}}
+.slot.drop{animation:drop .7s cubic-bezier(.3,1.5,.5,1) both}
+.slot.drop[data-k="2"]{animation-delay:.05s}.slot.drop[data-k="1"]{animation-delay:.3s}.slot.drop[data-k="0"]{animation-delay:.55s}
+@keyframes drop{0%{transform:translateY(-70px);opacity:0}60%{opacity:1}100%{transform:none}}
+.slot.drop .md{animation:spin .9s ease-out both;animation-delay:inherit}
+@keyframes spin{0%{transform:rotateY(0)}100%{transform:rotateY(720deg)}}
+@media (prefers-reduced-motion:reduce){.marq.win,.slot.drop,.slot.drop .md{animation:none}}
+@media (max-width:440px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.tile{font-size:14px;min-height:54px}.slot .md{width:34px;height:34px;font-size:15px}}
+@media (prefers-reduced-motion:reduce){.marq{animation:none}}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="wrap">
+  <button id="snd" class="ghost snd" type="button" aria-pressed="true">Sound on</button>
+  <a class="brand" href="https://www.thepodcastnobodyaskedfor.co.uk/?utm_source=top3&amp;utm_medium=game" target="_blank" rel="noopener"><img src="logo.png" alt="" width="96" height="58"><span><b>The Podcast Nobody Asked For</b><br>presents</span></a>
+  <div class="marq"><h1><span>Which are the</span>Top 3...</h1><p id="num">Daily puzzle</p></div>
+
+  <div class="cat"><h2 id="title">Loading…</h2><p class="m" id="metric"></p></div>
+  <p class="how">Ten contenders, three medals, and gold goes to number one. Tap films to fill gold, silver and bronze, then lock it in. Four tries.</p>
+
+  <div class="pod" id="pod"></div>
+  <ul class="grid" id="grid" aria-label="Contenders"></ul>
+
+  <div class="lock">
+    <div class="tries" id="tries"></div>
+    <div class="acts">
+      <button id="ll" class="ghost life" type="button"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V16h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span id="lltx">Lifeline</span></button>
+      <button id="go" type="button">Lock it in</button>
+    </div>
+  </div>
+  <p class="small llhelp" id="llh">One lifeline per game: it knocks out a film that isn't on the podium.</p>
+  <p class="msg" id="msg" aria-live="polite"></p>
+  <ul class="hist" id="hist"></ul>
+
+  <section class="end" id="end" hidden>
+    <h3 id="eh"></h3>
+    <p class="sub" id="es"></p>
+    <pre id="share"></pre>
+    <div class="row"><button id="copy" type="button">Copy result</button><span class="small" id="cm"></span></div>
+    <div class="stats" id="stats"></div>
+    <table id="full"></table>
+    <p class="small" id="note"></p>
+    <div class="rec" id="rec" hidden>
+      <p class="rl">Your prize: a personally curated film recommendation</p>
+      <div class="rb">
+        <div class="poster" aria-hidden="true"><span>☀</span></div>
+        <div><h4>Midsommar</h4><p class="ry">2019 · Dir. Ari Aster · 148 min</p>
+        <p>A grieving couple and their friends travel to a midsummer festival in rural Sweden. The flowers are lovely. Everything else, less so.</p>
+        <p class="ry">Our algorithm considered every film ever made and chose this one. It will choose this one again tomorrow.</p></div>
+      </div>
+    </div>
+    <div class="plug">
+      <img class="plogo" src="logo.png" alt="The Podcast Nobody Asked For hosts" width="140" height="85">
+      <h4>That's what the numbers say.</h4>
+      <p class="q" id="quip"></p>
+      <p>Every week Ian and Graham argue about the Top 3s that numbers can't settle. Weird categories, terrible takes, and the occasional award.</p>
+      <a class="cta" href="https://www.thepodcastnobodyaskedfor.co.uk/?utm_source=top3&amp;utm_medium=game" target="_blank" rel="noopener">Listen to the podcast</a>
+    </div>
+    <p class="next">Next puzzle in <b id="cd">--:--:--</b></p>
+  </section>
+</div>
+<script>
+{
+/* Each list is the ten contenders in correct order, best first. Puzzle 1 runs on the launch date, then one per day. */
+const P=[
+ {d:"Easy",t:"James Bond movies according to box office?",m:"Worldwide gross, not adjusted for inflation",note:"Approximate grosses, not adjusted for inflation.",quip:"Craig owns the podium. Connery fans, the comments are open.",l:[["Skyfall","$1.11bn"],["Spectre","$880m"],["No Time to Die","$774m"],["Casino Royale","$616m"],["Quantum of Solace","$589m"],["Die Another Day","$432m"],["The World Is Not Enough","$362m"],["GoldenEye","$352m"],["Tomorrow Never Dies","$333m"],["Moonraker","$210m"]]},
+ {d:"Medium",t:"1990s movies according to box office?",m:"Worldwide gross, re-releases included",note:"Approximate grosses.",quip:"The Phantom Menace made a billion dollars. Nobody asked how.",l:[["Titanic","$2.26bn"],["Jurassic Park","$1.1bn"],["The Phantom Menace","$1.03bn"],["The Lion King","$969m"],["Independence Day","$817m"],["Forrest Gump","$678m"],["The Sixth Sense","$673m"],["The Lost World: Jurassic Park","$619m"],["Men in Black","$589m"],["Armageddon","$553m"]]},
+ {d:"Medium",t:"Tom Cruise movies according to box office?",m:"Worldwide gross",note:"Approximate grosses.",quip:"War of the Worlds out-earned half the Mission: Impossibles. Tom ran for nothing.",l:[["Top Gun: Maverick","$1.50bn"],["Mission: Impossible Fallout","$791m"],["Ghost Protocol","$695m"],["War of the Worlds","$604m"],["Dead Reckoning","$571m"],["Mission: Impossible 2","$546m"],["The Last Samurai","$456m"],["Minority Report","$358m"],["Jerry Maguire","$274m"],["Collateral","$220m"]]},
+ {d:"Medium",t:"Pixar movies according to box office?",m:"Worldwide gross",note:"Approximate grosses.",quip:"Finding Dory missed the podium by a whisker. Just keep swimming.",l:[["Inside Out 2","$1.70bn"],["Incredibles 2","$1.24bn"],["Toy Story 4","$1.073bn"],["Toy Story 3","$1.067bn"],["Finding Dory","$1.03bn"],["Finding Nemo","$941m"],["Inside Out","$858m"],["Coco","$814m"],["Monsters University","$743m"],["Up","$735m"]]},
+ {d:"Hard",t:"Wizarding World movies according to runtime?",m:"Theatrical cut, longest first",note:"Theatrical cuts.",quip:"Chamber of Secrets is the longest. Make it make sense.",l:[["Chamber of Secrets","161 min"],["Goblet of Fire","157 min"],["Half-Blood Prince","153 min"],["Philosopher's Stone","152 min"],["Deathly Hallows Part 1","146 min"],["Prisoner of Azkaban","142 min"],["Order of the Phoenix","138 min"],["The Crimes of Grindelwald","134 min"],["Fantastic Beasts","133 min"],["Deathly Hallows Part 2","130 min"]]},
+ {d:"Hard",t:"Marvel movies according to box office?",m:"Worldwide gross. Endgame, Infinity War and No Way Home sat this one out.",note:"Approximate grosses.",quip:"Deadpool lost to Wakanda by about ten million dollars. He'd want a recount.",l:[["The Avengers","$1.52bn"],["Age of Ultron","$1.41bn"],["Black Panther","$1.35bn"],["Deadpool & Wolverine","$1.34bn"],["Iron Man 3","$1.21bn"],["Civil War","$1.15bn"],["Spider-Man: Far From Home","$1.13bn"],["Multiverse of Madness","$955m"],["Thor: Ragnarok","$854m"],["Ant-Man","$519m"]]},
+ {d:"Brutal",t:"Best Picture winners according to runtime?",m:"Restored cuts, longest first",note:"Runtimes vary by cut; restored versions used.",quip:"Longest isn't best. Unless it's Lawrence. Discuss.",l:[["Gone with the Wind","238 min"],["Lawrence of Arabia","227 min"],["Ben-Hur","212 min"],["The Godfather Part II","202 min"],["The Return of the King","201 min"],["Schindler's List","195 min"],["Titanic","194 min"],["Gandhi","191 min"],["Dances with Wolves","181 min"],["Oppenheimer","180 min"]]}
+];
+const MAX=4,N=10,LAUNCH=Date.UTC(2026,11,1),DAY=864e5;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const EARLY=Date.now()<LAUNCH;
+let idx=Math.max(0,Math.floor((Date.now()-LAUNCH)/DAY)),S,ORDER;
+const cur=()=>P[idx%P.length];
+const key=()=>"top3nobody-v3-"+idx;
+const rng=s=>()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
+const shuffle=()=>{const r=rng(idx*7919+13),o=[...Array(N).keys()];for(let i=N-1;i>0;i--){const j=Math.floor(r()*(i+1));[o[i],o[j]]=[o[j],o[i]]}return o};
+const load=()=>{try{S=JSON.parse(localStorage.getItem(key()))}catch(e){S=null}
+  if(!S||!Array.isArray(S.p)||!Array.isArray(S.t))S={p:[null,null,null],t:[]};ORDER=shuffle()};
+const save=()=>{try{localStorage.setItem(key(),JSON.stringify(S))}catch(e){}};
+const grade=o=>o.map((id,k)=>id===k?"c":id<3?"p":"x");
+const last=()=>S.t[S.t.length-1];
+const won=()=>!!S.t.length&&last().g.every(x=>x==="c");
+const over=()=>won()||S.t.length>=MAX;
+const locked=k=>!!S.t.length&&last().g[k]==="c"&&last().o[k]===S.p[k];
+/* What the player has learned: out = graded not top 3; pod = known to be on the podium */
+const knowledge=()=>{const out=new Set,pod=new Set;for(const x of S.t)x.o.forEach((id,k)=>{(x.g[k]==="x"?out:pod).add(id)});return{out,pod}};
+const llId=()=>S.ll?S.ll.id:-1;
+const EM={c:"🟩",p:"🟨",x:"⬛"};
+const say=t=>{$("msg").textContent=t};
+
+const render=()=>{
+  const c=cur(),done=over(),{out,pod}=knowledge(),nextK=S.p.indexOf(null);
+  $("num").textContent=EARLY?"Sneak preview · launches Tue 1 Dec":"Puzzle #"+(idx+1)+" · "+new Date(LAUNCH+idx*DAY).toLocaleDateString("en-GB",{weekday:"short",day:"numeric",month:"short",timeZone:"UTC"});
+  $("title").textContent=c.t;$("metric").textContent=c.m;
+  const show=done?[0,1,2]:S.p;
+  $("pod").innerHTML=[0,1,2].map(k=>{const id=show[k],lk=!done&&locked(k),fin=done;
+    const nm=id==null?(k===nextK&&!done?"Tap a film":"Empty"):c.l[id][0];
+    return `<button type="button" class="slot ${lk||(fin&&won())?"c":""} ${lk||done?"lockd":""} ${k===nextK&&!done?"next":""}" data-k="${k}" aria-label="${["Gold","Silver","Bronze"][k]}: ${esc(nm)}"><span class="md g${k}">${k+1}</span><span class="sn ${id==null?"e":""}">${esc(nm)}</span>${lk?`<span class="lk">Locked in</span>`:""}${fin?`<span class="small">${esc(c.l[k][1])}</span>`:""}</button>`}).join("");
+  $("grid").innerHTML=ORDER.map(id=>{const k=S.p.indexOf(id),o=out.has(id),pd=pod.has(id);
+    let cls="",b="";
+    if(id===llId()){cls="ll";b="Lifeline: out"}else if(o){cls="out";b="Not top 3"}else if(k>=0){cls="on";b=["Gold","Silver","Bronze"][k]}else if(pd){cls="pod";b="On the podium"}
+    return `<li><button type="button" class="tile ${cls}" data-id="${id}" ${o||done||id===llId()?"disabled":""}><span class="tn">${esc(c.l[id][0])}</span>${b?`<span class="b">${b}</span>`:""}</button></li>`}).join("");
+  $("tries").innerHTML="Tries "+Array.from({length:MAX},(_,i)=>`<i class="${i<S.t.length?"u":""}"></i>`).join("");
+  $("hist").innerHTML=S.t.map((x,i)=>`<li><span class="e">${x.g.map(g=>EM[g]).join("")}${S.ll&&S.ll.at===i?" 💡":""}</span><span class="t">Try ${i+1}: ${x.o.map(id=>esc(c.l[id][0])).join(", ")}</span></li>`).join("");
+  $("go").disabled=done||S.p.includes(null);
+  $("ll").disabled=done||!!S.ll;$("llh").hidden=done||!!S.ll;$("lltx").textContent=S.ll?"Lifeline used":"Lifeline";
+  $("end").hidden=!done;
+  if(done)renderEnd();};
+
+const shareText=()=>`Which are the Top 3... #${idx+1}\n${S.t.map((x,i)=>x.g.map(g=>EM[g]).join("")+(S.ll&&S.ll.at===i?" 💡":"")).join("\n")}\n${won()?`Podium sorted in ${S.t.length}/${MAX}`:`X/${MAX}, the podium won`}\nthepodcastnobodyaskedfor.co.uk/top3`;
+const renderEnd=()=>{const c=cur(),n=S.t.length;
+  $("eh").textContent=won()?(n===1?"First try. Suspicious.":n===2?"Sharp":n===3?"Got there":"Photo finish"):"The podium wins this one";
+  $("es").textContent=won()?`You sorted the podium in ${n} ${n===1?"try":"tries"}.`:"Here's how all ten really shake out.";
+  $("share").textContent=shareText();
+  $("full").innerHTML=c.l.map((e,i)=>`<tr class="${i>2?"off":""}"><td class="k">${i+1}</td><td>${esc(e[0])}</td><td class="v">${esc(e[1])}</td></tr>`).join("");
+  $("note").textContent=c.note;
+  $("quip").textContent=c.quip;$("cm").textContent="";$("rec").hidden=!won();renderStats()};
+/* Stats live in this browser only: {puzzle number: tries taken, or 0 for a loss} */
+const SK="top3dots-stats";
+const getStats=()=>{try{return JSON.parse(localStorage.getItem(SK))||{}}catch(e){return{}}};
+const record=()=>{const r=getStats();if(r[idx]!==undefined)return;r[idx]=won()?S.t.length:0;try{localStorage.setItem(SK,JSON.stringify(r))}catch(e){}};
+const renderStats=()=>{const r=getStats(),ks=Object.keys(r).map(Number).sort((a,b)=>a-b),pl=ks.length;
+  if(!pl){$("stats").innerHTML="";return}
+  const wins=ks.filter(k=>r[k]>0).length;let best=0,run=0,prev=null;
+  for(const k of ks){run=r[k]>0&&(prev===null||k===prev+1)?run+1:r[k]>0?1:0;best=Math.max(best,run);prev=k}
+  let curS=0;for(let k=ks[pl-1];r[k]>0;k--)curS++;
+  const dist=[1,2,3,4].map(n=>ks.filter(k=>r[k]===n).length),mx=Math.max(1,...dist),mine=r[idx];
+  $("stats").innerHTML=`<div class="sn4"><div><b>${pl}</b><span>Played</span></div><div><b>${Math.round(wins/pl*100)}%</b><span>Win rate</span></div><div><b>${curS}</b><span>Current streak</span></div><div><b>${best}</b><span>Best streak</span></div></div>
+  <div class="dist" aria-label="Tries needed to win">${dist.map((v,i)=>`<div><span>${i+1} ${i?"tries":"try"}</span><i class="${mine===i+1?"me":""}" style="width:${Math.max(8,v/mx*100)}%">${v}</i></div>`).join("")}</div>
+  <p class="small">Saved in this browser.</p>`};
+
+$("grid").addEventListener("click",e=>{const b=e.target.closest(".tile");if(!b||b.disabled||over())return;
+  const id=+b.dataset.id,k=S.p.indexOf(id);
+  if(k>=0){if(locked(k)){say("That one's locked in.");return}S.p[k]=null;say("")}
+  else{const e2=S.p.indexOf(null);if(e2<0){say("Podium's full. Tap a medal slot to clear it.");return}S.p[e2]=id;say("")}
+  save();render()});
+$("pod").addEventListener("click",e=>{const b=e.target.closest(".slot");if(!b||over())return;
+  const k=+b.dataset.k;if(S.p[k]==null)return;if(locked(k)){say("That one's locked in.");return}
+  S.p[k]=null;say("");save();render()});
+$("go").addEventListener("click",()=>{if(over()||S.p.includes(null))return;
+  const o=S.p.slice(),g=grade(o);S.t.push({o,g});
+  S.p=o.map((id,k)=>g[k]==="c"?id:null);save();
+  const c=g.filter(x=>x==="c").length,p=g.filter(x=>x==="p").length,left=MAX-S.t.length;
+  if(over())record();
+  if(c===3)say("Podium sorted.");
+  else if(!left)say("Out of tries.");
+  else say(`${c} in the right spot, ${p} on the podium but misplaced. ${left} ${left===1?"try":"tries"} left.`);
+  render();if(c===3)celebrate()});
+
+/* Lifeline: knock out one off-podium film the player hasn't already ruled out */
+$("ll").addEventListener("click",()=>{if(over()||S.ll)return;
+  const {out}=knowledge(),pool=[...Array(N).keys()].filter(id=>id>2&&!out.has(id));
+  const pick=pool.sort((a,b)=>(S.p.includes(b)?1:0)-(S.p.includes(a)?1:0))[0];
+  if(pick==null)return;
+  const k=S.p.indexOf(pick);if(k>=0)S.p[k]=null;
+  S.ll={id:pick,at:S.t.length};save();
+  say(`Lifeline: ${cur().l[pick][0]} isn't on the podium.${k>=0?" It's been taken off your podium.":""}`);render()});
+
+/* Win moment: marquee flash, medals drop, confetti, fanfare */
+let sound=true;try{sound=localStorage.getItem("top3dots-sound")!=="off"}catch(e){}
+const sndUI=()=>{$("snd").textContent=sound?"Sound on":"Sound off";$("snd").setAttribute("aria-pressed",sound)};sndUI();
+$("snd").addEventListener("click",()=>{sound=!sound;try{localStorage.setItem("top3dots-sound",sound?"on":"off")}catch(e){}sndUI()});
+const fanfare=()=>{if(!sound)return;try{const A=new (window.AudioContext||window.webkitAudioContext)(),t=A.currentTime;
+  [[523,0,.12],[659,.12,.12],[784,.24,.12],[1047,.36,.5],[784,.5,.08],[1047,.6,.7]].forEach(([f,d,l])=>{const o=A.createOscillator(),g=A.createGain();o.type="square";o.frequency.value=f;
+    g.gain.setValueAtTime(0,t+d);g.gain.linearRampToValueAtTime(.08,t+d+.02);g.gain.exponentialRampToValueAtTime(.001,t+d+l);o.connect(g).connect(A.destination);o.start(t+d);o.stop(t+d+l+.05)})}catch(e){}};
+const reduce=()=>window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+const confetti=()=>{if(reduce())return;const cv=$("fx"),x=cv.getContext("2d"),W=cv.width=innerWidth,H=cv.height=innerHeight,C=["#FFB901","#e1261c","#fff6c9","#f6efe2","#3fa34d"];
+  const ps=Array.from({length:150},()=>({x:W/2+(Math.random()-.5)*W*.3,y:H*.35,vx:(Math.random()-.5)*14,vy:-Math.random()*14-4,r:Math.random()*6+4,c:C[Math.floor(Math.random()*C.length)],a:Math.random()*6,s:(Math.random()-.5)*.4}));
+  let f=0;const step=()=>{x.clearRect(0,0,W,H);for(const p of ps){p.vy+=.35;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.a+=p.s;x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillStyle=p.c;x.fillRect(-p.r/2,-p.r/4,p.r,p.r/2);x.restore()}
+    if(++f<170)requestAnimationFrame(step);else x.clearRect(0,0,W,H)};step()};
+const celebrate=()=>{const m=document.querySelector(".marq");m.classList.remove("win");void m.offsetWidth;m.classList.add("win");setTimeout(()=>m.classList.remove("win"),3200);
+  document.querySelectorAll(".slot").forEach(s=>s.classList.add("drop"));
+  $("pod").scrollIntoView({behavior:reduce()?"auto":"smooth",block:"center"});
+  fanfare();setTimeout(confetti,500);
+  setTimeout(()=>$("end").scrollIntoView({behavior:reduce()?"auto":"smooth",block:"start"}),2400)};
+
+$("copy").addEventListener("click",()=>{const t=shareText();
+  try{navigator.clipboard.writeText(t).then(()=>{$("cm").textContent="Copied. Go and gloat."},()=>{$("cm").textContent="Copy blocked, select the text above instead."})}catch(e){$("cm").textContent="Copy blocked, select the text above instead."}});
+const go=d=>{idx=Math.max(0,idx+d);load();say("");render()};
+const tick=()=>{const now=Date.now(),s=Math.floor((Math.ceil((now+1)/DAY)*DAY-now)/1e3);
+  $("cd").textContent=[s/3600,s%3600/60,s%60].map(v=>String(Math.floor(v)).padStart(2,"0")).join(":")};
+setInterval(tick,1000);tick();
+load();render();
+}
+</script>
+</body>
+</html>
