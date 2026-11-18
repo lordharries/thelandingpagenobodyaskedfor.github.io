@@ -4,6 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Which are the Top 3...</title>
+<meta name="description" content="A daily movie ranking game from The Podcast Nobody Asked For. Get the right three on the podium in four tries.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Podcast Nobody Asked For">
+<meta property="og:title" content="Which are the Top 3...">
+<meta property="og:description" content="A daily movie ranking game. Get the right three on the podium in four tries.">
+<meta property="og:url" content="https://thepodcastnobodyaskedfor.co.uk/top3/">
+<meta property="og:image" content="https://thepodcastnobodyaskedfor.co.uk/top3/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Which are the Top 3... A daily movie ranking game from The Podcast Nobody Asked For">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Which are the Top 3...">
+<meta name="twitter:description" content="A daily movie ranking game. Get the right three on the podium in four tries.">
+<meta name="twitter:image" content="https://thepodcastnobodyaskedfor.co.uk/top3/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Archivo:wght@400;600;800&display=swap">
 <style>
@@ -103,7 +117,13 @@ tr.off td{color:var(--mut)}tr.off td.k{color:var(--mut)}
 .ep img{flex:none;width:72px;height:72px;border-radius:8px;object-fit:cover;background:#120c0022}
 .ep p{margin:0}.ep .en{font-weight:800;line-height:1.25}
 .plug .cta{background:#120c00;color:var(--y)}
-.next{margin-top:14px;text-align:center}
+.next{margin:14px 0 0;text-align:center}
+.glob{margin:18px 0 0;padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+.glob h5{margin:0 0 8px;font:13px/1.2 Bungee,sans-serif;letter-spacing:.5px;color:var(--y)}
+.glob .gn{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;text-align:center}
+.glob .gn b{display:block;font:clamp(20px,4.5vw,26px)/1.1 Bungee,sans-serif;color:var(--ink)}
+.glob .gn span{font-size:12px;color:var(--mut);line-height:1.2;display:block}
+.glob p{margin:8px 0 0;font-size:13px;color:var(--mut);text-align:center}
 .next b{font-variant-numeric:tabular-nums}
 .acts{display:flex;gap:8px;flex-wrap:wrap}
 .life{gap:6px}.life:disabled{opacity:.4}
@@ -167,6 +187,8 @@ tr.off td{color:var(--mut)}tr.off td.k{color:var(--mut)}
     <p class="sub" id="es"></p>
     <pre id="share"></pre>
     <div class="row"><button id="copy" type="button">Copy result</button><span class="small" id="cm"></span></div>
+    <p class="next">Next puzzle in <b id="cd">--:--:--</b></p>
+    <div class="glob" id="glob" hidden></div>
     <div class="stats" id="stats"></div>
     <table id="full"></table>
     <p class="small" id="note"></p>
@@ -190,7 +212,6 @@ tr.off td{color:var(--mut)}tr.off td.k{color:var(--mut)}
       <a class="cta" id="pcta" href="https://www.thepodcastnobodyaskedfor.co.uk/?utm_source=top3&amp;utm_medium=game" target="_blank" rel="noopener">Listen to the podcast</a>
     </div>
     <div class="archrow" id="archrow" hidden><button id="archBtn" class="ghost" type="button">Play past puzzles</button></div>
-    <p class="next">Next puzzle in <b id="cd">--:--:--</b></p>
   </section>
   <section class="arch" id="arch" hidden>
     <h3>Past puzzles</h3>
@@ -271,14 +292,33 @@ const renderEnd=()=>{const c=cur(),n=S.t.length;
   $("pcta").textContent=ep?"Listen to this episode":"Listen to the podcast";
   $("pcta").href=ep?ep.link:"https://www.thepodcastnobodyaskedfor.co.uk/?utm_source=top3&utm_medium=game";
   if(ep){$("epi").hidden=!ep.image;if(ep.image)$("epi").src=ep.image;
-    $("ent").textContent="Episode "+ep.n+(ep.title?": "+ep.title:"")}$("cm").textContent="";$("rec").hidden=!won();renderStats();$("archrow").hidden=EARLY||TODAY===0};
+    $("ent").textContent="Episode "+ep.n+(ep.title?": "+ep.title:"")}$("cm").textContent="";$("rec").hidden=!won();renderStats();showGlobal();$("archrow").hidden=EARLY||TODAY===0};
 /* Stats live in this browser only: {puzzle number: tries taken, or 0 for a loss} */
 const SK="top3dots-stats";
 const AK="top3dots-archive";
 const getStats=()=>{try{return JSON.parse(localStorage.getItem(SK))||{}}catch(e){return{}}};
 const getArch=()=>{try{return JSON.parse(localStorage.getItem(AK))||{}}catch(e){return{}}};
 const record=()=>{if(PREVIEWING())return;const r=getStats(),a=getArch();if(r[idx]!==undefined||a[idx]!==undefined)return;
-  const v=won()?S.t.length:0;try{if(isArch()){a[idx]=v;localStorage.setItem(AK,JSON.stringify(a))}else{r[idx]=v;localStorage.setItem(SK,JSON.stringify(r))}}catch(e){}};
+  const v=won()?S.t.length:0;try{if(isArch()){a[idx]=v;localStorage.setItem(AK,JSON.stringify(a))}else{r[idx]=v;localStorage.setItem(SK,JSON.stringify(r))}}catch(e){}
+  if(!isArch())logResult(v)};
+/* Everyone's results: today's finished games are logged anonymously to the Sheet, and the totals come back */
+const PK="top3dots-pid";
+const pid=()=>{try{let p=localStorage.getItem(PK);if(!p){p=Math.random().toString(36).slice(2,10)+Date.now().toString(36);localStorage.setItem(PK,p)}return p}catch(e){return""}};
+let GLOB={};
+const logResult=v=>{if(!SCRIPT_URL||PREVIEWING())return;const d=dateOf(idx);
+  const grid=S.t.map(x=>x.g.map(g=>EM[g]).join("")).join(" ");
+  const q="?action=result&date="+d+"&n="+(idx+1)+"&tries="+S.t.length+"&won="+(v>0?1:0)+"&ll="+(S.ll?1:0)+"&pid="+encodeURIComponent(pid())+"&grid="+encodeURIComponent(grid);
+  getJSON(SCRIPT_URL+q,6000).then(s=>{if(s&&s.ok&&s.stats){GLOB[d]=s.stats;showGlobal()}}).catch(()=>{})};
+const drawGlobal=s=>{const el=$("glob");
+  if(!s||!s.n){el.hidden=true;return}
+  const pct=Math.round(s.wins/s.n*100),avg=s.wins?(s.dist.reduce((t,c,i)=>t+c*(i+1),0)/s.wins).toFixed(1):"–";
+  const who=isArch()?"How everyone did on the day":"How everyone did today";
+  el.innerHTML=`<h5>${who}</h5><div class="gn"><div><b>${s.n.toLocaleString("en-GB")}</b><span>${s.n===1?"Player":"Players"}</span></div><div><b>${pct}%</b><span>Got the podium</span></div><div><b>${avg}</b><span>Average tries to win</span></div></div>`+
+    (s.n<5?`<p>You're one of the first to play. Check back later.</p>`:"");
+  el.hidden=false};
+const showGlobal=()=>{const el=$("glob");if(!SCRIPT_URL||PREVIEWING()){el.hidden=true;return}
+  const d=dateOf(idx);if(GLOB[d]){drawGlobal(GLOB[d]);return}
+  getJSON(SCRIPT_URL+"?action=stats&date="+d).then(s=>{if(s&&s.ok&&s.stats&&(!GLOB[d]||s.stats.n>=GLOB[d].n)){GLOB[d]=s.stats;if(dateOf(idx)===d)drawGlobal(s.stats)}}).catch(()=>{})};
 const renderStats=()=>{const r=getStats(),a=getArch(),ks=Object.keys(r).map(Number).sort((a,b)=>a-b);
   const all=Object.assign({},a,r),ak=Object.keys(all).map(Number),pl=ak.length;
   if(!pl){$("stats").innerHTML="";return}
