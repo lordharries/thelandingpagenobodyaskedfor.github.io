@@ -132,8 +132,21 @@ tr.off td{color:var(--mut)}tr.off td.k{color:var(--mut)}
 .tile.ll{opacity:.35;text-decoration:line-through;border-left-color:var(--r);cursor:not-allowed}
 .tile.ll .b{background:var(--r);color:#fff;text-decoration:none}
 .wrap{position:relative}
-.snd{position:absolute;top:8px;right:16px;min-height:34px;padding:4px 12px;font-size:12px}
-@media (max-width:640px){.snd{position:static;display:flex;margin:0 0 10px auto}}
+.tools{position:absolute;top:8px;right:16px;display:flex;gap:6px}
+.snd{min-height:34px;padding:4px 12px;font-size:12px}
+@media (max-width:640px){.tools{position:static;justify-content:flex-end;margin:0 0 10px}}
+dialog.htp{width:min(460px,calc(100% - 32px));max-height:calc(100% - 32px);padding:0;border:0;border-radius:14px;background:var(--panel);color:var(--ink);box-shadow:0 20px 60px #000a;overflow:auto}
+dialog.htp::backdrop{background:#0009;backdrop-filter:blur(2px)}
+.htp .hh{background:var(--y);color:var(--dk);padding:16px 20px;border-bottom:6px solid var(--r)}
+.htp .hh h2{margin:0;font:24px/1.1 Bungee,sans-serif}
+.htp .hb{padding:16px 20px 20px}
+.htp .hb>p{margin:0 0 12px}
+.htp ol{margin:0 0 14px;padding-left:1.3em}.htp ol li{margin:0 0 6px}
+.htp .key{list-style:none;padding:0;margin:0 0 14px;display:grid;gap:8px}
+.htp .key li{display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:8px;background:var(--bg);border:1px solid var(--line);font-size:14px}
+.htp .key span{flex:none;font-size:20px}
+.htp .small{margin:0 0 14px}
+.htp .go{width:100%}
 #fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
 .marq.win{animation:chase .18s steps(2) infinite,glow .6s ease-in-out 5}
 @keyframes glow{50%{box-shadow:0 0 90px #fdba09cc,0 0 30px #fff3}}
@@ -160,8 +173,26 @@ tr.off td{color:var(--mut)}tr.off td.k{color:var(--mut)}
 </head>
 <body>
 <canvas id="fx" aria-hidden="true"></canvas>
+<dialog class="htp" id="htp" aria-labelledby="htpT">
+  <div class="hh"><h2 id="htpT">How to play</h2></div>
+  <div class="hb">
+    <p>Each day there's a new question and ten films. Work out which three come top.</p>
+    <ol>
+      <li>Tap films to fill gold, silver and bronze. Gold is number one.</li>
+      <li>Hit <b>Lock it in</b> to check your podium.</li>
+      <li>You get four tries to get all three in the right order.</li>
+    </ol>
+    <ul class="key">
+      <li><span>🟩</span>Right film, right spot. It stays locked in.</li>
+      <li><span>🟨</span>On the podium, but in the wrong spot.</li>
+      <li><span>⬛</span>Not in the top 3. It gets crossed off the list.</li>
+    </ul>
+    <p class="small">💡 One lifeline per game knocks out a film that isn't on the podium. A new puzzle drops at midnight, UK time.</p>
+    <button class="go" id="htpGo" type="button">Let's play</button>
+  </div>
+</dialog>
 <div class="wrap">
-  <button id="snd" class="ghost snd" type="button" aria-pressed="true">Sound on</button>
+  <div class="tools"><button id="help" class="ghost snd" type="button" aria-haspopup="dialog">How to play</button><button id="snd" class="ghost snd" type="button" aria-pressed="true">Sound on</button></div>
   <a class="brand" href="https://www.thepodcastnobodyaskedfor.co.uk/?utm_source=top3&amp;utm_medium=game" target="_blank" rel="noopener"><img src="logo.png" alt="" width="96" height="58"><span><b>The Podcast Nobody Asked For</b><br>presents</span></a>
   <div class="marq"><h1><span>Which are the</span>Top 3...</h1><p id="num">Daily puzzle</p></div>
 
@@ -360,6 +391,15 @@ $("ll").addEventListener("click",()=>{if(over()||S.ll)return;
 
 /* Win moment: marquee flash, medals drop, confetti, fanfare */
 let sound=true;try{sound=localStorage.getItem("top3dots-sound")!=="off"}catch(e){}
+/* How to play: opens by itself on a first visit, then lives behind the button */
+const HK="top3dots-seenhelp",htp=$("htp");
+const openHelp=()=>{try{htp.showModal()}catch(e){htp.setAttribute("open","")}};
+const closeHelp=()=>{try{htp.close()}catch(e){htp.removeAttribute("open")}try{localStorage.setItem(HK,"1")}catch(e){}};
+$("help").addEventListener("click",openHelp);
+$("htpGo").addEventListener("click",closeHelp);
+htp.addEventListener("close",()=>{try{localStorage.setItem(HK,"1")}catch(e){}});
+htp.addEventListener("click",e=>{if(e.target===htp)closeHelp()});
+try{if(!localStorage.getItem(HK)&&!Object.keys(getStats()).length)setTimeout(openHelp,400)}catch(e){}
 const sndUI=()=>{$("snd").textContent=sound?"Sound on":"Sound off";$("snd").setAttribute("aria-pressed",sound)};sndUI();
 $("snd").addEventListener("click",()=>{sound=!sound;try{localStorage.setItem("top3dots-sound",sound?"on":"off")}catch(e){}sndUI()});
 const fanfare=()=>{if(!sound)return;try{const A=new (window.AudioContext||window.webkitAudioContext)(),t=A.currentTime;
