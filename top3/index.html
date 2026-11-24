@@ -258,7 +258,7 @@ const P=[{"t": "James Bond movies according to box office?", "m": "Worldwide gro
 /* Paste your Apps Script web app URL here. Leave empty to use the puzzles built into this page. */
 const SCRIPT_URL="https://script.google.com/macros/s/AKfycbyS4IxmDaPMFSiOnovsbK2I3Tr2hFBtMFKP02XvBTSQbHcWHyzRuDywdydDuwuK4zaq/exec";
 const LIVE={};
-const MAX=4,N=10,LAUNCH=Date.UTC(2026,11,1),DAY=864e5;
+const MAX=4,N=10,LAUNCH=Date.UTC(2026,10,26),DAY=864e5;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
 /* Days roll over at midnight UK time, matching the Sheet's Live dates */
@@ -291,7 +291,7 @@ const say=t=>{$("msg").textContent=t};
 
 const render=()=>{
   const c=cur(),done=over(),{out,pod}=knowledge(),nextK=S.p.indexOf(null);
-  $("num").textContent=PV&&!isArch()&&LIVE[TODAY]?"Preview · "+QS.get("date"):EARLY?"Sneak preview · launches Tue 1 Dec":(isArch()?"Archive · ":"")+"Puzzle #"+(idx+1)+" · "+fmt(idx);
+  $("num").textContent=PV&&!isArch()&&LIVE[TODAY]?"Preview · "+QS.get("date"):EARLY?"Sneak preview · launches Thu 26 Nov":(isArch()?"Archive · ":"")+"Puzzle #"+(idx+1)+" · "+fmt(idx);
   $("back").hidden=!isArch();
   $("title").textContent=c.t;$("metric").textContent=c.m;
   const show=done?[0,1,2]:S.p;
