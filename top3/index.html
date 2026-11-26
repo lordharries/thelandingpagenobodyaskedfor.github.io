@@ -104,8 +104,7 @@ tr.off td{color:var(--mut)}tr.off td.k{color:var(--mut)}
 .rec{margin-top:22px;padding:18px;border-radius:12px;background:linear-gradient(160deg,#fbf3d6,#f3dca0);color:#2a2112}
 .rec .rl{margin:0 0 12px;font:800 13px Archivo,sans-serif;color:#7a5a12}
 .rb{display:flex;gap:16px;align-items:flex-start}
-.poster{flex:none;width:84px;aspect-ratio:2/3;border-radius:6px;background:radial-gradient(circle at 50% 38%,#fff8c4 0 18%,#ffd84a 19% 30%,transparent 31%),repeating-conic-gradient(from 0deg at 50% 38%,#f7c6d9 0 10deg,#cfe6b8 10deg 20deg);display:grid;place-items:center;box-shadow:0 6px 16px #0003}
-.poster span{font-size:26px;color:#c8860a;margin-bottom:22%}
+.poster{flex:none;width:84px;aspect-ratio:2/3;height:auto;border-radius:6px;object-fit:cover;background:#e9dcc0;box-shadow:0 6px 16px #0003}
 .rec h4{font:clamp(22px,4vw,28px)/1.05 Bungee,sans-serif;margin:0;color:#2a2112}
 .rec p{margin:6px 0 0}
 .rec .ry{font-size:13px;color:#6b5a3a}
@@ -228,7 +227,7 @@ dialog.htp::backdrop{background:#0009;backdrop-filter:blur(2px)}
     <div class="rec" id="rec" hidden>
       <p class="rl">Your prize: a personally curated film recommendation</p>
       <div class="rb">
-        <div class="poster" aria-hidden="true"><span>☀</span></div>
+        <img class="poster" src="midsommar.jpg" alt="Midsommar poster" width="84" height="126">
         <div><h4>Midsommar</h4><p class="ry">2019 · Dir. Ari Aster · 148 min</p>
         <p>A grieving couple and their friends travel to a midsummer festival in rural Sweden. The flowers are lovely. Everything else, less so.</p>
         <p class="ry">Our algorithm considered every film ever made and chose this one. It will choose this one again tomorrow.</p></div>
