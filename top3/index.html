@@ -112,7 +112,7 @@ tr.off td{color:var(--mut)}tr.off td.k{color:var(--mut)}
 .plug{margin-top:22px;padding:20px;border-radius:12px;background:var(--y);color:var(--dk)}
 .plug h4{font:800 20px/1.2 Archivo,sans-serif;margin:0 0 6px}
 .plug p{margin:0 0 14px}
-.plug .q{font-style:italic;font-weight:600}
+.quip{margin:12px 0 4px;padding:12px 14px;border-left:4px solid var(--y);background:var(--panel);border-radius:0 8px 8px 0;font-style:italic;font-weight:600;color:var(--ink)}
 .plug .tk{font-weight:800}
 .ep{display:flex;gap:12px;align-items:center;margin:0 0 14px;padding:10px;border-radius:10px;background:var(--dk)14}
 .ep img{flex:none;width:72px;height:72px;border-radius:8px;object-fit:cover;background:var(--dk)22}
@@ -201,6 +201,7 @@ dialog.htp::backdrop{background:#0009;backdrop-filter:blur(2px)}
   <p class="how">Ten contenders, three medals, and gold goes to number one. Tap films to fill gold, silver and bronze, then lock it in. Four tries.</p>
 
   <div class="pod" id="pod"></div>
+  <p class="quip" id="quip" hidden></p>
   <ul class="grid" id="grid" aria-label="Contenders"></ul>
 
   <div class="lock">
@@ -236,7 +237,6 @@ dialog.htp::backdrop{background:#0009;backdrop-filter:blur(2px)}
     <div class="plug">
       <img class="plogo" src="logo.png" alt="The Podcast Nobody Asked For hosts" width="140" height="85">
       <h4 id="ph">That's what the numbers say.</h4>
-      <p class="q" id="quip"></p>
       <p class="tk" id="tk" hidden></p>
       <p id="pst" hidden>Here's an episode to get you started:</p>
       <div class="ep" id="ep" hidden><img id="epi" alt="" width="72" height="72"><p class="en" id="ent"></p></div>
@@ -291,6 +291,7 @@ const say=t=>{$("msg").textContent=t};
 
 const render=()=>{
   const c=cur(),done=over(),{out,pod}=knowledge(),nextK=S.p.indexOf(null);
+  $("quip").textContent=c.quip||"";$("quip").hidden=!done||!c.quip;
   $("num").textContent=PV&&!isArch()&&LIVE[TODAY]?"Preview · "+QS.get("date"):EARLY?"Sneak preview · launches Thu 26 Nov":(isArch()?"Archive · ":"")+"Puzzle #"+(idx+1)+" · "+fmt(idx);
   $("back").hidden=!isArch();
   $("title").textContent=c.t;$("metric").textContent=c.m;
@@ -316,7 +317,7 @@ const renderEnd=()=>{const c=cur(),n=S.t.length;
   $("share").textContent=shareText();
   $("full").innerHTML=c.l.map((e,i)=>`<tr class="${i>2?"off":""}"><td class="k">${i+1}</td><td>${esc(e[0])}</td><td class="v">${esc(e[1])}</td></tr>`).join("");
   $("note").textContent=c.note;
-  $("quip").textContent=c.quip;
+  
   $("tk").textContent=c.take?"Our verdict: "+c.take:"";$("tk").hidden=!c.take;
   const ep=c.ep&&c.ep.link?c.ep:null;
   $("ep").hidden=!ep;$("pt").hidden=!!ep;
@@ -342,15 +343,14 @@ const logResult=v=>{if(!SCRIPT_URL||PREVIEWING())return;const d=dateOf(idx);
   const q="?action=result&date="+d+"&n="+(idx+1)+"&tries="+S.t.length+"&won="+(v>0?1:0)+"&ll="+(S.ll?1:0)+"&pid="+encodeURIComponent(pid())+"&grid="+encodeURIComponent(grid);
   getJSON(SCRIPT_URL+q,6000).then(s=>{if(s&&s.ok&&s.stats){GLOB[d]=s.stats;showGlobal()}}).catch(()=>{})};
 const drawGlobal=s=>{const el=$("glob");
-  if(!s||!s.n){el.hidden=true;return}
-  const pct=Math.round(s.wins/s.n*100),avg=s.wins?(s.dist.reduce((t,c,i)=>t+c*(i+1),0)/s.wins).toFixed(1):"–";
+  if(!s){el.hidden=true;return}
   const who=isArch()?"How everyone did on the day":"How everyone did today";
-  el.innerHTML=`<h5>${who}</h5><div class="gn"><div><b>${s.n.toLocaleString("en-GB")}</b><span>${s.n===1?"Player":"Players"}</span></div><div><b>${pct}%</b><span>Got the podium</span></div><div><b>${avg}</b><span>Average tries to win</span></div></div>`+
-    (s.n<5?`<p>You're one of the first to play. Check back later.</p>`:"");
+  if(s.early){el.innerHTML=`<h5>${who}</h5><p>You're one of the first to play. Check back later to see how everyone did.</p>`;el.hidden=false;return}
+  el.innerHTML=`<h5>${who}</h5><div class="gn"><div><b>${s.win}%</b><span>Got the podium</span></div><div><b>${s.first}%</b><span>Nailed it first try</span></div><div><b>${s.avg==null?"–":s.avg.toFixed(1)}</b><span>Average tries to win</span></div></div>`;
   el.hidden=false};
 const showGlobal=()=>{const el=$("glob");if(!SCRIPT_URL||PREVIEWING()){el.hidden=true;return}
   const d=dateOf(idx);if(GLOB[d]){drawGlobal(GLOB[d]);return}
-  getJSON(SCRIPT_URL+"?action=stats&date="+d).then(s=>{if(s&&s.ok&&s.stats&&(!GLOB[d]||s.stats.n>=GLOB[d].n)){GLOB[d]=s.stats;if(dateOf(idx)===d)drawGlobal(s.stats)}}).catch(()=>{})};
+  getJSON(SCRIPT_URL+"?action=stats&date="+d).then(s=>{if(s&&s.ok&&s.stats){GLOB[d]=s.stats;if(dateOf(idx)===d)drawGlobal(s.stats)}}).catch(()=>{})};
 const renderStats=()=>{const r=getStats(),a=getArch(),ks=Object.keys(r).map(Number).sort((a,b)=>a-b);
   const all=Object.assign({},a,r),ak=Object.keys(all).map(Number),pl=ak.length;
   if(!pl){$("stats").innerHTML="";return}
