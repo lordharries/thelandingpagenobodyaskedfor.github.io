@@ -111,6 +111,12 @@ tr.off td{color:var(--mut)}tr.off td.k{color:var(--mut)}
 .plug{margin-top:22px;padding:20px;border-radius:12px;background:var(--y);color:var(--dk)}
 .plug h4{font:800 20px/1.2 Archivo,sans-serif;margin:0 0 6px}
 .plug p{margin:0 0 14px}
+.oops{display:none;margin:22px 0;padding:26px 20px;text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:14px}
+.oops .g{font-size:46px;line-height:1;margin-bottom:10px}
+.oops h2{margin:0 0 8px;font-size:22px}
+.oops p{margin:0 0 18px;color:var(--mut)}
+body.broke .oops{display:block}
+body.broke .wrap>*:not(.tools):not(.brand):not(.marq):not(.oops){display:none!important}
 .quip{margin:12px 0 4px;padding:12px 14px;border-left:4px solid var(--y);background:var(--panel);border-radius:0 8px 8px 0;font-style:italic;font-weight:600;color:var(--ink)}
 .plug .tk{font-weight:800}
 .ep{display:flex;gap:12px;align-items:center;margin:0 0 14px;padding:10px;border-radius:10px;background:var(--dk)14}
@@ -195,6 +201,12 @@ dialog.htp::backdrop{background:#0009;backdrop-filter:blur(2px)}
   <a class="brand" href="https://www.thepodcastnobodyaskedfor.co.uk/?utm_source=top3&amp;utm_medium=game" target="_blank" rel="noopener"><img src="logo.png" alt="" width="96" height="58"><span><b>The Podcast Nobody Asked For</b><br>presents</span></a>
   <div class="marq"><h1><span>Which are the</span>Top 3...</h1><p id="num">Daily puzzle</p></div>
 
+  <div class="oops" id="oops" role="alert">
+    <div class="g" aria-hidden="true">👹</div>
+    <h2>Gremlins in the projector</h2>
+    <p>Something chewed up today's puzzle on its way to you. Give the page a refresh and try again.</p>
+    <button id="oopsGo" type="button" onclick="location.reload()">Refresh the page</button>
+  </div>
   <div class="cat"><h2 id="title">Loading…</h2><p class="m" id="metric"></p></div>
   <button id="back" class="ghost back" type="button" hidden>Back to today's puzzle</button>
   <p class="how">Ten contenders, three medals, and gold goes to number one. Tap films to fill gold, silver and bronze, then lock it in. Four tries.</p>
@@ -424,24 +436,27 @@ setInterval(tick,1000);tick();
 const getJSON=(u,ms)=>{const ac=new AbortController(),to=setTimeout(()=>ac.abort(),ms||4000);
   return fetch(u,{signal:ac.signal}).then(r=>r.json()).finally(()=>clearTimeout(to))};
 const QS=new URLSearchParams(location.search),PV=QS.get("date")&&QS.get("key")?"?date="+encodeURIComponent(QS.get("date"))+"&key="+encodeURIComponent(QS.get("key")):"";
-const fetchPuzzle=i=>{if(!SCRIPT_URL||LIVE[i])return Promise.resolve();
-  return getJSON(SCRIPT_URL+(i===TODAY?PV:"?date="+dateOf(i))).then(d=>{if(d&&d.ok&&Array.isArray(d.l)&&d.l.length===N)LIVE[i]=d}).catch(()=>{})};
-const play=i=>{$("arch").hidden=true;idx=i;fetchPuzzle(i).finally(()=>{load();say("");render();window.scrollTo({top:0,behavior:"smooth"})})};
+const fetchPuzzle=(i,tries=2)=>{if(!SCRIPT_URL||LIVE[i])return Promise.resolve(true);
+  return getJSON(SCRIPT_URL+(i===TODAY?PV:"?date="+dateOf(i)),10000).then(d=>{if(d&&d.ok&&Array.isArray(d.l)&&d.l.length===N)LIVE[i]=d}).catch(()=>{})
+    .then(()=>LIVE[i]?true:tries>1?fetchPuzzle(i,tries-1):false)};
+/* No puzzle from the Sheet: blame the gremlins instead of showing an old puzzle */
+const gremlins=()=>{document.body.classList.add("broke");$("num").textContent="Technical difficulties";window.scrollTo({top:0})};
+const play=i=>{$("arch").hidden=true;idx=i;fetchPuzzle(i).then(ok=>{if(!ok)return gremlins();load();say("");render();window.scrollTo({top:0,behavior:"smooth"})})};
 $("back").addEventListener("click",()=>play(TODAY));
 
 /* Archive: past puzzles only, opened from the end screen once today's game is done */
 const archList=()=>{const fallback=()=>Array.from({length:TODAY},(_,i)=>({i,t:P[i%P.length].t}));
   if(!SCRIPT_URL)return Promise.resolve(fallback());
-  return getJSON(SCRIPT_URL+"?action=list").then(d=>d&&d.ok&&Array.isArray(d.list)?d.list.map(x=>({i:Math.round((Date.parse(x.date)-LAUNCH)/DAY),t:x.t})).filter(x=>x.i>=0&&x.i<TODAY):fallback()).catch(fallback)};
+  return getJSON(SCRIPT_URL+"?action=list").then(d=>d&&d.ok&&Array.isArray(d.list)?d.list.map(x=>({i:Math.round((Date.parse(x.date)-LAUNCH)/DAY),t:x.t})).filter(x=>x.i>=0&&x.i<TODAY):null).catch(()=>null)};
 $("archBtn").addEventListener("click",()=>{$("arch").hidden=false;$("alist").innerHTML='<li class="small">Loading…</li>';
-  archList().then(L=>{const r=getStats(),a=getArch();
+  archList().then(L=>{if(!L){$("alist").innerHTML='<li class="small">Gremlins got into the archive. Refresh the page and try again.</li>';return}const r=getStats(),a=getArch();
     $("alist").innerHTML=L.length?L.sort((x,y)=>y.i-x.i).map(x=>{const v=r[x.i]!==undefined?r[x.i]:a[x.i];
       const st=v===undefined?["","Not played"]:v>0?["w","Won in "+v]:["l","Lost"];
       return `<li><button type="button" data-i="${x.i}"><span class="an">#${x.i+1}</span><span class="at">${esc(x.t)}<small>${fmt(x.i)}</small></span><span class="as ${st[0]}">${st[1]}</span></button></li>`}).join(""):'<li class="small">No past puzzles yet. Come back tomorrow.</li>';
     $("arch").scrollIntoView({behavior:"smooth",block:"start"})})});
 $("alist").addEventListener("click",e=>{const b=e.target.closest("button[data-i]");if(b)play(+b.dataset.i)});
 
-fetchPuzzle(TODAY).finally(()=>{load();render()});
+fetchPuzzle(TODAY).then(ok=>{if(!ok)return gremlins();load();render()});
 }
 </script>
 </body>
